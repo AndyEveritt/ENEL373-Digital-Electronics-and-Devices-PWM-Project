@@ -52,7 +52,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param xicom.use_bs_reader 1
   open_checkpoint main_pwm_routed.dcp
-  set_property webtalk.parent_dir E:/Uni/ENEL373/Labs/Project/PWM_Project/PWM_Project.cache/wt [current_project]
+  set_property webtalk.parent_dir E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.cache/wt [current_project]
   catch { write_mem_info -force main_pwm.mmi }
   write_bitstream -force main_pwm.bit 
   catch { write_sysdef -hwdef main_pwm.hwdef -bitfile main_pwm.bit -meminfo main_pwm.mmi -file main_pwm.sysdef }

@@ -51,9 +51,9 @@ process (RESET, counter_in) is
     begin
     if RESET = '1' then
         count <= counter_start;
-    elsif(counter_in'event and counter_in = '1') then
+    elsif(counter_in'event and counter_in = '0') then
         if(count = X"0") then
-            count <= X"F";
+            count <= X"F"; 
         else
             count <= count - X"1";
         end if;

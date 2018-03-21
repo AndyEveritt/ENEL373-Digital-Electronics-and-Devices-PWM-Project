@@ -38,15 +38,28 @@ end main_pwm_tb;
 architecture Behavioral of main_pwm_tb is
     component main_pwm
         port (
-            CLK100MHZ : in STD_LOGIC;
-            LED : out STD_LOGIC_VECTOR (1 downto 0)
+            CLK100MHZ, BTNC : in STD_LOGIC;
+            SW : in STD_LOGIC_VECTOR(15 downto 0);
+            LED : out STD_LOGIC_VECTOR (15 downto 0)
             );
+    end component;
+    
+    signal SW : STD_LOGIC_VECTOR(15 downto 0);
+    signal LED : STD_LOGIC_VECTOR(15 downto 0);
+    signal BTNC : STD_LOGIC;
+    signal Clock : STD_LOGIC;
+    constant ClockPeriod : TIME := 50 ns;
 
 begin
-
---    process
---        begin
+    UUT: main_PWM
+        port map (SW => SW, LED => LED, CLK100MHZ => Clock, BTNC => BTNC);
         
---    end process
+    process
+        begin
+        Clock <= '1';
+        wait for 1 ns;
+        Clock <= '0';
+        wait for 1 ns;
+    end process;
 
 end Behavioral;
