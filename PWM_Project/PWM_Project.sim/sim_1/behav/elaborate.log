@@ -1,0 +1,19 @@
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 582c66e628344eed9bc3ec90e3b630e9 --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot main_pwm_behav xil_defaultlib.main_pwm -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package ieee.std_logic_1164
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.clock_divider [\clock_divider(output_frequency=...]
+Compiling architecture behavioral of entity xil_defaultlib.clock_divider [\clock_divider(output_frequency=...]
+Compiling architecture behavioral of entity xil_defaultlib.counter_4_bit [counter_4_bit_default]
+Compiling architecture struct of entity xil_defaultlib.main_pwm
+Built simulation snapshot main_pwm_behav
