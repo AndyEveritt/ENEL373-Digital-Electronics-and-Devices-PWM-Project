@@ -37,27 +37,33 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity counter_16_bit is
   port (
     counter_in, RESET : in STD_LOGIC;
-    counter_start : in STD_LOGIC_VECTOR(15 downto 0) := X"FFFF";
+    counter_start : in STD_LOGIC_VECTOR(15 downto 0);
     counter_out : out STD_LOGIC_VECTOR(15 downto 0);
     LED17_R : out STD_LOGIC
   );
 end counter_16_bit;
 
 architecture Behavioral of counter_16_bit is
-    signal count : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
+    signal count : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
+    signal start : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
 
-begin
-process (RESET, counter_in) is
     begin
-    if(rising_edge(counter_in)) then
-        if (RESET = '1' or count = X"0000") then
-            LED17_R <= '1';
-            count <= counter_start;
-        else
-            count <= count - X"0001";
-            LED17_R <= '0';
+--    process (counter_start) is
+--        begin
+--        count <= counter_start;
+--    end process;
+    
+    process (RESET, counter_in) is
+        begin
+        if (rising_edge(counter_in)) then
+            if (RESET = '1' or count = X"0000") then
+                LED17_R <= '1';
+                count <= counter_start;
+            else
+                count <= count - X"1";
+                LED17_R <= '0';
+            end if;
         end if;
-    end if;
-end process;
-counter_out <= count;
+        counter_out <= count;
+    end process;
 end Behavioral;

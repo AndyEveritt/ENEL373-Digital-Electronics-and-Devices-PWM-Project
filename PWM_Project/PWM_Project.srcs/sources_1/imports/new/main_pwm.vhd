@@ -35,7 +35,7 @@ use UNISIM.VComponents.all;
 entity main_pwm is
   Port (
        CLK100MHZ, BTNC : in STD_LOGIC;
-       SW : in STD_LOGIC_VECTOR(15 downto 0);
+       SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000";
        LED : out STD_LOGIC_VECTOR (15 downto 0);
        LED16_R : out STD_LOGIC;
        LED17_R : out STD_LOGIC
@@ -117,7 +117,7 @@ architecture struct of main_pwm is
 --    signal count_over_4 : STD_LOGIC;
     
     -- Default counter value
-    signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"0002";
+    signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
     signal count16bitout : STD_LOGIC_VECTOR(15 downto 0);
 --    signal count16bitpulse : STD_LOGIC;
 
@@ -132,7 +132,7 @@ Clock1000Hz: clock_divider
 
 -- 16 bit down counter
 Counter16: counter_16_bit
-    port map (counter_in => CLK100MHZ, RESET => RESET, counter_start => count16bit, counter_out => count16bitout);
+    port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit, counter_out => count16bitout, LED17_R => LED17_R);
 --Counter1: counter_4_bit
 --    port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit(3 downto 0), counter_out => count1, pulse_out => count_over_1);
 --Counter2: counter_4_bit
@@ -159,16 +159,16 @@ Counter16: counter_16_bit
 --end process;
 
 -- Set counter reset
-process(count16bitout)
-begin
-    if (count16bitout = X"0000") then
-        RESET <= '1';
---        LED17_R <= '1';
-    else
-        RESET <= '0';
---        LED17_R <= '0';
-    end if;
-end process;
+--process(count16bitout)
+--begin
+--    if (count16bitout = X"0000") then
+--        RESET <= '1';
+----        LED17_R <= '1';
+--    else
+--        RESET <= '0';
+----        LED17_R <= '0';
+--    end if;
+--end process;
 
 LED16_R <= CLK5HZ;
 
@@ -186,11 +186,9 @@ LED16_R <= CLK5HZ;
 -- update counter start based on switch input
 process(BTNC)
 begin
-    if rising_edge(CLK100MHZ) then
-        if (BTNC = '1') then
-            count16bit <= SW;
-            LED <= count16bit;
-        end if;
+    if (rising_edge(CLK100MHZ) and BTNC = '1') then
+        count16bit <= SW;
+        LED <= count16bit;
     end if;
 end process;
 
