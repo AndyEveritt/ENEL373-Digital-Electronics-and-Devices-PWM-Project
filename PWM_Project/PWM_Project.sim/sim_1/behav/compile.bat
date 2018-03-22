@@ -1,7 +1,7 @@
 @echo off
-set xv_path=D:\\Programs\\Xilinx\\Vivado\\2016.2\\bin
-echo "xvhdl -m64 --relax -prj main_pwm_tb_vhdl.prj"
-call %xv_path%/xvhdl  -m64 --relax -prj main_pwm_tb_vhdl.prj -log xvhdl.log
+set xv_path=C:\\Xilinx\\Vivado\\2016.2\\bin
+echo "xvhdl -m64 --relax -prj counter_16_bit_tb_vhdl.prj"
+call %xv_path%/xvhdl  -m64 --relax -prj counter_16_bit_tb_vhdl.prj -log xvhdl.log
 call type xvhdl.log > compile.log
 if "%errorlevel%"=="1" goto END
 if "%errorlevel%"=="0" goto SUCCESS

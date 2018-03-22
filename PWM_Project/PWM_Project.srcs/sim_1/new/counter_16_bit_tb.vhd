@@ -41,7 +41,7 @@ architecture Behavioral of counter_16_bit_tb is
             counter_in, RESET : in STD_LOGIC;
             counter_start : in STD_LOGIC_VECTOR(15 downto 0);
             counter_out : out STD_LOGIC_VECTOR(15 downto 0);
-            LED17_R : out STD_LOGIC
+            pulse_out : out STD_LOGIC
             );
     end component;
     
@@ -54,7 +54,7 @@ architecture Behavioral of counter_16_bit_tb is
 
 begin
 UUT: counter_16_bit
-    port map (counter_in => Clock, counter_start => counter_start, counter_out => counter_out, RESET => RESET, LED17_R => LED17_R);
+    port map (counter_in => Clock, counter_start => counter_start, counter_out => counter_out, RESET => RESET, pulse_out => LED17_R);
     
     process
         begin

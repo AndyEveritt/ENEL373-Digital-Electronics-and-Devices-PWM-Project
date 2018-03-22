@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Mar 21 17:02:00 2018">
+<application name="pa" timeStamp="Fri Mar 23 12:19:51 2018">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="da79b019412b4f72836c53ba398438ac" type="ProjectID"/>
-<property name="ProjectIteration" value="46" type="ProjectIteration"/>
+<property name="ProjectIteration" value="56" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,134 +17,40 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="5" type="JavaHandler"/>
-<property name="AutoConnectTarget" value="3" type="JavaHandler"/>
+<property name="AddSources" value="6" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="5" type="JavaHandler"/>
 <property name="EditDelete" value="1" type="JavaHandler"/>
 <property name="EditPaste" value="1" type="JavaHandler"/>
-<property name="EditUndo" value="2" type="JavaHandler"/>
-<property name="LaunchProgramFpga" value="21" type="JavaHandler"/>
-<property name="OpenHardwareManager" value="18" type="JavaHandler"/>
-<property name="OpenProject" value="2" type="JavaHandler"/>
+<property name="EditUndo" value="4" type="JavaHandler"/>
+<property name="FlipToViewTaskRTLAnalysis" value="2" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="26" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="23" type="JavaHandler"/>
+<property name="OpenProject" value="5" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="2" type="JavaHandler"/>
 <property name="ProgramDevice" value="7" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="4" type="JavaHandler"/>
-<property name="RunBitgen" value="17" type="JavaHandler"/>
-<property name="RunImplementation" value="28" type="JavaHandler"/>
-<property name="RunSchematic" value="8" type="JavaHandler"/>
-<property name="RunSynthesis" value="34" type="JavaHandler"/>
-<property name="SaveFileProxyHandler" value="8" type="JavaHandler"/>
-<property name="SetSourceEnabled" value="2" type="JavaHandler"/>
-<property name="ShowView" value="25" type="JavaHandler"/>
-<property name="SimulationBreak" value="1" type="JavaHandler"/>
-<property name="SimulationClose" value="6" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="7" type="JavaHandler"/>
-<property name="SimulationRun" value="11" type="JavaHandler"/>
-<property name="SimulationRunAll" value="6" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="29" type="JavaHandler"/>
+<property name="RunBitgen" value="22" type="JavaHandler"/>
+<property name="RunImplementation" value="33" type="JavaHandler"/>
+<property name="RunSchematic" value="10" type="JavaHandler"/>
+<property name="RunSynthesis" value="39" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="13" type="JavaHandler"/>
+<property name="SetSourceEnabled" value="13" type="JavaHandler"/>
+<property name="SetTopNode" value="1" type="JavaHandler"/>
+<property name="ShowView" value="26" type="JavaHandler"/>
+<property name="SimulationBreak" value="2" type="JavaHandler"/>
+<property name="SimulationClose" value="9" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="84" type="JavaHandler"/>
+<property name="SimulationRun" value="22" type="JavaHandler"/>
+<property name="SimulationRunAll" value="8" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="116" type="JavaHandler"/>
+<property name="SimulationStep" value="55" type="JavaHandler"/>
 <property name="UpdateSourceFiles" value="3" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="2" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="12" type="JavaHandler"/>
-<property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
-<property name="ViewTaskSimulation" value="3" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="24" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="3" type="JavaHandler"/>
+<property name="ViewTaskSimulation" value="7" type="JavaHandler"/>
 <property name="WaveformSaveConfiguration" value="1" type="JavaHandler"/>
-</item>
-<item name="Gui Resources Info">
-<property name="PAResourceAtoD.CmdMsgDialog_MESSAGES, [Labtools 27-1832] create_wave_config not a supported tcl command in labtools hardware mode. Default wave configurations are automatically created when triggering an ILA core., 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CmdMsgDialog_MESSAGES, [Labtools 27-1832] create_wave_config not a supported tcl command in labtools hardware mode. Default wave configurations are automatically created when triggering an ILA core., 0, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="3" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CmdMsgDialog_OPEN_MESSAGES_VIEW, Open Messages View" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, Open Hardware Manager" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="9" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="5" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation], 9, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, Program device" value="3" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramFpgaDialog_PROGRAM, Program" value="3" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationForceSettingsDialog_FORCE_VALUE, 0" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationForceSettingsDialog_FORCE_VALUE, 0002" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationForceSettingsDialog_FORCE_VALUE, 1" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 10" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, us, 2" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, Counter16 ; counter_16_bit(Behavioral" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, UUT ; main_pwm(struct" value="2" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="9" type="GuiResourceData"/>
-<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="5" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 317, 390" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 341, 250" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 366, 207" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 459, 235" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 462, 245" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 479, 239" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 561, 238" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, RESET], 13, false, false, false, false, true, false" value="5" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, RESET], 17, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count16bit[15:0]], 14" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count16bitout[15:0]], 15" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count16bitout[15:0]], 15, true" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count16bitout[15:0]], 3" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[15:0]], 9" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_in], 16, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_out[15:0]], 10" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_out[15:0]], 19" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_out[15:0]], 7" value="4" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_out[15:0]], 7, true" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_out[15:0]], 7, true, false, false, false, true, false" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter_start[15:0]], 6" value="2" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 103, 259" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 211, 485" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 239, 477" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 347, 450" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 355, 247" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 360, 232" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 362, 231" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 363, 229" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 364, 232" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 373, 350" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 376, 326" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 381, 263" value="1" type="GuiResourceData"/>
-<property name="counter_16_bit.vhd, 535, 202" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 158, 268" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 194, 129, false, false, true, false, false" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 217, 174" value="2" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 219, 433" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 229, 415" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 233, 297" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 236, 403" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 237, 467" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 243, 365" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 47, 162" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 498, 402" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 498, 402, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 502, 396, false, false, true, false, false" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 51, 174" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 542, 400" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 546, 195" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 551, 333" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 564, 191" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 67, 178" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 69, 279" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 83, 198, false, false, true, false, false" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 93, 178" value="1" type="GuiResourceData"/>
-<property name="main_pwm.vhd, 94, 167" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 142, 262" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 167, 253" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 208, 407" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 278, 435" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 303, 452" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 363, 263" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 378, 431" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 385, 433" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 388, 432" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 391, 432" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 399, 430" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 82, 196" value="1" type="GuiResourceData"/>
-<property name="main_pwm_tb.vhd, 82, 216" value="1" type="GuiResourceData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="2" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="1" type="TclMode"/>
 </item>
 </section>
 </application>

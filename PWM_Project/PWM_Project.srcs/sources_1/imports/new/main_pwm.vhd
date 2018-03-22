@@ -34,11 +34,12 @@ use UNISIM.VComponents.all;
 
 entity main_pwm is
   Port (
-       CLK100MHZ, BTNC : in STD_LOGIC;
-       SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000";
-       LED : out STD_LOGIC_VECTOR (15 downto 0);
-       LED16_R : out STD_LOGIC;
-       LED17_R : out STD_LOGIC
+       CLK100MHZ : in STD_LOGIC; -- 100 MHz hardware clock
+       BTNC, BTNR : in STD_LOGIC; -- Buttons
+       SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
+       LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
+       LED16_R, LED17_R : out STD_LOGIC; -- Red part of RGB LEDs
+       JA : out STD_LOGIC_VECTOR (2 downto 1) -- Pmod output
 --       CA : out STD_LOGIC;
 --       CB : out STD_LOGIC;
 --       CC : out STD_LOGIC;
@@ -59,30 +60,14 @@ architecture struct of main_pwm is
             );
     end component;
     
---    component counter_4_bit
---        port (
---            counter_in, RESET : in STD_LOGIC;
---            counter_start : in STD_LOGIC_VECTOR(3 downto 0);
---            counter_out : out STD_LOGIC_VECTOR(3 downto 0);
---            pulse_out : out STD_LOGIC
---            );
---    end component;
-    
     component counter_16_bit
         port (
             counter_in, RESET : in STD_LOGIC;
             counter_start : in STD_LOGIC_VECTOR(15 downto 0);
             counter_out : out STD_LOGIC_VECTOR(15 downto 0);
-            LED17_R : out STD_LOGIC
+            pulse_out : out STD_LOGIC
             );
     end component;
-    
-    --component Multiplexer
-    --    Port ( 
-    --        SEL : in  STD_LOGIC;
-    --        X   : out STD_LOGIC_VECTOR
-    --        );
-    --end component;
     
 --    component segment_counter
 --        port (
@@ -102,24 +87,11 @@ architecture struct of main_pwm is
     signal CLK5HZ : STD_LOGIC;
     signal CLK1000HZ : STD_LOGIC;
     signal RESET : STD_LOGIC := '0';
-    --signal AN : STD_LOGIC_VECTOR (7 downto 0);
-    
-    -- Counter BCD values
---    signal count1 : STD_LOGIC_VECTOR(3 downto 0);
---    signal count2 : STD_LOGIC_VECTOR(3 downto 0);
---    signal count3 : STD_LOGIC_VECTOR(3 downto 0);
---    signal count4 : STD_LOGIC_VECTOR(3 downto 0);
-    
-    -- Counter overflow signals
---    signal count_over_1 : STD_LOGIC;
---    signal count_over_2 : STD_LOGIC;
---    signal count_over_3 : STD_LOGIC;
---    signal count_over_4 : STD_LOGIC;
     
     -- Default counter value
     signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
     signal count16bitout : STD_LOGIC_VECTOR(15 downto 0);
---    signal count16bitpulse : STD_LOGIC;
+    signal count16bitpulse : STD_LOGIC;
 
 begin
 -- Clock signals
@@ -132,59 +104,20 @@ Clock1000Hz: clock_divider
 
 -- 16 bit down counter
 Counter16: counter_16_bit
-    port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit, counter_out => count16bitout, LED17_R => LED17_R);
---Counter1: counter_4_bit
---    port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit(3 downto 0), counter_out => count1, pulse_out => count_over_1);
---Counter2: counter_4_bit
---    port map (counter_in => count_over_1, RESET => RESET, counter_start => count16bit(7 downto 4), counter_out => count2, pulse_out => count_over_2);
---Counter3: counter_4_bit
---    port map (counter_in => count_over_2, RESET => RESET, counter_start => count16bit(11 downto 8), counter_out => count3, pulse_out => count_over_3);
---Counter4: counter_4_bit
---    port map (counter_in => count_over_3, RESET => RESET, counter_start => count16bit(15 downto 12), counter_out => count4, pulse_out => count_over_4);
-
---U4: Multiplexer
---    port map (SEL => '0', X => AN);
---Disp1: segment_counter
---    port map (num => count1, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN_in => "11111110", AN => AN);
---Disp2: segment_counter
---    port map (num => count2, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN_in => "11111101", AN => AN);
---Disp3: segment_counter
---    port map (num => count3, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN_in => "11111011", AN => AN);
---Disp4: segment_counter
---    port map (num => count4, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN_in => "11110111", AN => AN);
-
---process(count1, count2, count3, count4)
---begin
---    count16bitout <= count4 & count3 & count2 & count1;
---end process;
-
--- Set counter reset
---process(count16bitout)
---begin
---    if (count16bitout = X"0000") then
---        RESET <= '1';
-----        LED17_R <= '1';
---    else
---        RESET <= '0';
-----        LED17_R <= '0';
---    end if;
---end process;
+    port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit, counter_out => count16bitout, pulse_out => count16bitpulse);
 
 LED16_R <= CLK5HZ;
 
 -- Flash LED(1) when counter reaches 0
---LED(1) <= count_over_1;
---process(count16bitout)
---begin
---    if (count16bitout = X"0000") then
---        LED(1) <= '1';
---    else
---        LED(1) <= '0';
---    end if;
---end process;
+process(count16bitpulse)
+begin
+    LED17_R <= count16bitpulse;
+    JA(2) <= count16bitpulse;
+    JA(1) <= '0';
+end process;
 
 -- update counter start based on switch input
-process(BTNC)
+count_register : process(BTNC)
 begin
     if (rising_edge(CLK100MHZ) and BTNC = '1') then
         count16bit <= SW;
@@ -192,5 +125,12 @@ begin
     end if;
 end process;
 
+-- reset counter using currently loaded count16bit
+reset_btn : process(BTNR)
+begin
+    if (rising_edge(CLK100MHZ)) then
+        RESET <= BTNR;
+    end if;
+end process;
 
 end struct;

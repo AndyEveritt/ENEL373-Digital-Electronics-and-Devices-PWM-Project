@@ -39,31 +39,32 @@ entity counter_16_bit is
     counter_in, RESET : in STD_LOGIC;
     counter_start : in STD_LOGIC_VECTOR(15 downto 0);
     counter_out : out STD_LOGIC_VECTOR(15 downto 0);
-    LED17_R : out STD_LOGIC
+    pulse_out : out STD_LOGIC
   );
 end counter_16_bit;
 
 architecture Behavioral of counter_16_bit is
     signal count : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
-    signal start : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
+--    signal start : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
+--    signal test : STD_LOGIC_VECTOR(15 downto 0);
 
     begin
 --    process (counter_start) is
 --        begin
---        count <= counter_start;
+--        test <= counter_start;
 --    end process;
     
     process (RESET, counter_in) is
         begin
         if (rising_edge(counter_in)) then
             if (RESET = '1' or count = X"0000") then
-                LED17_R <= '1';
+                pulse_out <= '1';
                 count <= counter_start;
             else
                 count <= count - X"1";
-                LED17_R <= '0';
+                pulse_out <= '0';
             end if;
         end if;
-        counter_out <= count;
     end process;
+    counter_out <= count;
 end Behavioral;
