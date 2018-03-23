@@ -45,14 +45,10 @@ end counter_16_bit;
 
 architecture Behavioral of counter_16_bit is
     signal count : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
---    signal start : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
---    signal test : STD_LOGIC_VECTOR(15 downto 0);
+    signal start : STD_LOGIC_VECTOR(15 downto 0) := counter_start;
+    signal test : STD_LOGIC_VECTOR(15 downto 0);
 
     begin
---    process (counter_start) is
---        begin
---        test <= counter_start;
---    end process;
     
     process (RESET, counter_in) is
         begin

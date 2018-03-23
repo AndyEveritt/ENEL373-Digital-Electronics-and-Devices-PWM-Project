@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Andy Everitt
 -- 
 -- Create Date: 07.03.2018 15:06:13
 -- Design Name: 
--- Module Name: Clock_Divider - Behavioral
--- Project Name: 
+-- Module Name: main_pwm - Structural
+-- Project Name: PWM Milestone 1
 -- Target Devices: 
 -- Tool Versions: 
 -- Description: 

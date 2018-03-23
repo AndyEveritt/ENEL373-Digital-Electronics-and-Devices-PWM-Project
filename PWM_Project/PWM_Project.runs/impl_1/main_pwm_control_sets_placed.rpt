@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Fri Mar 23 12:18:57 2018
-| Host         : ESL02 running 64-bit major release  (build 9200)
+| Date         : Fri Mar 23 15:36:23 2018
+| Host         : ELECTRO-06 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_pwm_control_sets_placed.rpt
 | Design       : main_pwm
 | Device       : xc7a100t
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     7 |
-| Unused register locations in slices containing registers |    33 |
+| Number of unique control sets                            |     6 |
+| Unused register locations in slices containing registers |    26 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,10 +33,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              21 |            8 |
+| No           | No                    | No                     |              20 |            7 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              41 |           11 |
-| Yes          | No                    | No                     |              33 |           13 |
+| No           | Yes                   | No                     |              41 |           10 |
+| Yes          | No                    | No                     |              33 |           11 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -48,13 +48,12 @@ Table of Contents
 +------------------------+---------------------+-------------------------------+------------------+----------------+
 |      Clock Signal      |    Enable Signal    |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
 +------------------------+---------------------+-------------------------------+------------------+----------------+
-|  Counter16/p_0_out[0]  |                     |                               |                1 |              1 |
 |  CLK100MHZ_IBUF_BUFG   | Clock5Hz/out_clock0 |                               |                1 |              1 |
 |  CLK100MHZ_IBUF_BUFG   |                     |                               |                3 |              3 |
 |  Clock1000Hz/out_clock |                     |                               |                4 |             17 |
-|  CLK100MHZ_IBUF_BUFG   |                     | Clock1000Hz/count[16]_i_1_n_0 |                5 |             17 |
+|  CLK100MHZ_IBUF_BUFG   |                     | Clock1000Hz/count[16]_i_1_n_0 |                4 |             17 |
 |  CLK100MHZ_IBUF_BUFG   |                     | Clock5Hz/count[24]_i_1_n_0    |                6 |             24 |
-|  CLK100MHZ_IBUF_BUFG   | BTNC_IBUF           |                               |               12 |             32 |
+|  CLK100MHZ_IBUF_BUFG   | BTNC_IBUF           |                               |               10 |             32 |
 +------------------------+---------------------+-------------------------------+------------------+----------------+
 
 
