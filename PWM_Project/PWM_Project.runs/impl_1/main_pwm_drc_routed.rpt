@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Fri Mar 23 15:37:14 2018
-| Host         : ELECTRO-06 running 64-bit major release  (build 9200)
+| Date         : Wed Mar 28 16:34:28 2018
+| Host         : ELECTRO-10 running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_pwm_drc_routed.rpt -pb main_pwm_drc_routed.pb
 | Design       : main_pwm
 | Device       : xc7a100tcsg324-3

@@ -39,15 +39,15 @@ entity main_pwm is
        SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
        LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
        LED16_R, LED17_R : out STD_LOGIC; -- Red part of RGB LEDs
-       JA : out STD_LOGIC_VECTOR (2 downto 1) -- Pmod output
---       CA : out STD_LOGIC;
---       CB : out STD_LOGIC;
---       CC : out STD_LOGIC;
---       CD : out STD_LOGIC;
---       CE : out STD_LOGIC;
---       CF : out STD_LOGIC;
---       CG : out STD_LOGIC;
---       AN : out STD_LOGIC_VECTOR(7 downto 0)
+       JA : out STD_LOGIC_VECTOR (2 downto 1); -- Pmod output
+       CA : out STD_LOGIC;
+       CB : out STD_LOGIC;
+       CC : out STD_LOGIC;
+       CD : out STD_LOGIC;
+       CE : out STD_LOGIC;
+       CF : out STD_LOGIC;
+       CG : out STD_LOGIC;
+       AN : out STD_LOGIC_VECTOR(7 downto 0)
         );
 end main_pwm;
 
@@ -69,20 +69,31 @@ architecture struct of main_pwm is
             );
     end component;
     
---    component segment_counter
---        port (
---            num : in STD_LOGIC_VECTOR(3 downto 0);
---            CA : out STD_LOGIC;
---            CB : out STD_LOGIC;
---            CC : out STD_LOGIC;
---            CD : out STD_LOGIC;
---            CE : out STD_LOGIC;
---            CF : out STD_LOGIC;
---            CG : out STD_LOGIC;
-----            AN_in : in STD_LOGIC_VECTOR(7 downto 0);
---            AN : out STD_LOGIC_VECTOR(7 downto 0)
---            );
---    end component;
+    component binary_bcd
+        generic(N: positive := 16);
+        port(
+            clk, reset: in std_logic;
+            binary_in: in std_logic_vector(N-1 downto 0);
+            bcd0, bcd1, bcd2, bcd3, bcd4: out std_logic_vector(3 downto 0);
+            bcd: out std_logic_vector(19 downto 0)
+            );
+    end component;
+            
+    component multiplex_seven_seg
+        port(
+            clk       : in STD_LOGIC;
+            bcd    : in STD_LOGIC_VECTOR(19 downto 0);
+    --        DP      : in STD_LOGIC;
+            CA    : out STD_LOGIC;
+            CB    : out STD_LOGIC;
+            CC    : out STD_LOGIC;
+            CD    : out STD_LOGIC;
+            CE    : out STD_LOGIC;
+            CF    : out STD_LOGIC;
+            CG    : out STD_LOGIC;
+            AN  : out STD_LOGIC_VECTOR(7 downto 0)
+            );
+    end component;
     
     signal CLK5HZ : STD_LOGIC;
     signal CLK1000HZ : STD_LOGIC;
@@ -92,6 +103,9 @@ architecture struct of main_pwm is
     signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
     signal count16bitout : STD_LOGIC_VECTOR(15 downto 0);
     signal count16bitpulse : STD_LOGIC;
+    
+    -- 7 segment display
+    signal bcd : STD_LOGIC_VECTOR(19 downto 0);
 
 begin
 -- Clock signals
@@ -106,14 +120,21 @@ Clock1000Hz: clock_divider
 Counter16: counter_16_bit
     port map (counter_in => CLK1000HZ, RESET => RESET, counter_start => count16bit, counter_out => count16bitout, pulse_out => count16bitpulse);
 
+-- 7 Segment display
+Binary_2_BCD: binary_bcd
+    port map (clk => CLK1000HZ, reset => RESET, binary_in => count16bitout, bcd => bcd);
+Seven_Seg: multiplex_seven_seg
+    port map (clk => CLK1000HZ, bcd => bcd, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN => AN);
+
+
 LED16_R <= CLK5HZ;
+JA(1) <= CLK5HZ;
 
 -- Flash LED(1) when counter reaches 0
 process(count16bitpulse)
 begin
     LED17_R <= count16bitpulse;
     JA(2) <= count16bitpulse;
-    JA(1) <= '0';
 end process;
 
 -- update counter start based on switch input
