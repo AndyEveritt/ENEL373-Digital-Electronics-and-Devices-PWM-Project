@@ -54,41 +54,43 @@ begin
     end if;
 end process;
 
-process (current_state, But)
+process (But)
 begin
-    case current_state is
-        when s0 =>
-            State <= "00";
-            next_state <= s0;
-        if (rising_edge(But)) then
-            State <= "01";
-            next_state <= s1;
-        end if;
-        
-        when s1 =>
-            State <= "01";
-            next_state <= s1;
-        if (rising_edge(But)) then
-            State <= "11";
-            next_state <= s2;
-        end if;
-        
-        when s2 =>
-            State <= "11";
-            next_state <= s2;
-        if (rising_edge(But)) then
-            State <= "10";
-            next_state <= s3;
-        end if;
-        
-        when s3 =>
-            State <= "10";
-            next_state <= s3;
-        if (rising_edge(But)) then
-            State <= "00";
-            next_state <= s0;
-        end if;
-    end case;
+    if (rising_edge(CLK)) then
+        case current_state is
+            when s0 =>
+                State <= "00";
+                next_state <= s0;
+            if (But = '1') then
+                State <= "01";
+                next_state <= s1;
+            end if;
+            
+            when s1 =>
+                State <= "01";
+                next_state <= s1;
+            if (But = '1') then
+                State <= "11";
+                next_state <= s2;
+            end if;
+            
+            when s2 =>
+                State <= "11";
+                next_state <= s2;
+            if (But = '1') then
+                State <= "10";
+                next_state <= s3;
+            end if;
+            
+            when s3 =>
+                State <= "10";
+                next_state <= s3;
+            if (But = '1') then
+                State <= "00";
+                next_state <= s0;
+            end if;
+        end case;
+    end if;
 end process;
 
 end Behavioral;

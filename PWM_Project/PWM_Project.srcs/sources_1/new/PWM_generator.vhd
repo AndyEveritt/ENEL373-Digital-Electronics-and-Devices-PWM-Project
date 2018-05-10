@@ -36,8 +36,12 @@ entity PWM_generator is
     Generic (N : integer := 16);
     Port ( RESET : in STD_LOGIC;
            clk : in STD_LOGIC;
-           duty : in STD_LOGIC_VECTOR (N-1 downto 0);
-           period : in STD_LOGIC_VECTOR (N-1 downto 0);
+           BTNC, BTNU : in STD_LOGIC;
+           SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
+           LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
+           LED16_G : out STD_LOGIC;
+--           duty : in STD_LOGIC_VECTOR (N-1 downto 0);
+--           period : in STD_LOGIC_VECTOR (N-1 downto 0);
            out_state : in STD_LOGIC_VECTOR (1 downto 0);
            count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
            output : out STD_LOGIC);
@@ -51,6 +55,9 @@ architecture Behavioral of PWM_generator is
 
 signal count : STD_LOGIC_VECTOR (N-1 downto 0);
 signal output_tmp : STD_LOGIC;
+signal duty : STD_LOGIC_VECTOR (N-1 downto 0);
+signal period : STD_LOGIC_VECTOR (N-1 downto 0);
+signal SW_State : STD_LOGIC;
 
 begin
 
@@ -93,7 +100,32 @@ begin
             end case;
         end process assign_output;
     
+    process(BTNC)
+        begin
+            if (rising_edge(CLK) and BTNC = '1') then
+                if SW_State = '0' then
+                    period <= SW;
+                    LED <= period;
+                elsif SW_State = '1' then
+                    duty <= SW;
+                    LED <= duty;
+                end if;
+            end if;
+        end process;
     
+    state: process(BTNU)
+        begin
+            if (rising_edge(CLK) and BTNU = '1') then
+                SW_State <= not SW_State;
+            end if;
+            if SW_State = '0' then
+                LED <= period;
+            elsif SW_State = '1' then
+                LED <= duty;
+            end if;
+            LED16_G <= SW_State;
+        end process state;
+        
 --    pwm_out: process (count)
 --    begin
 --        if count < duty then

@@ -38,7 +38,7 @@ entity main_pwm is
        BTNL, BTNU, BTNC, BTNR, BTND : in STD_LOGIC; -- Buttons
        SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
        LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
-       LED16_R, LED17_R : out STD_LOGIC; -- Red part of RGB LEDs
+       LED16_G, LED16_R, LED17_R : out STD_LOGIC; -- RGB LEDs
        JA : out STD_LOGIC_VECTOR (2 downto 1); -- Pmod output
        CA : out STD_LOGIC;
        CB : out STD_LOGIC;
@@ -60,6 +60,12 @@ architecture struct of main_pwm is
             );
     end component;
     
+    component debounce
+        Port ( RESET : in STD_LOGIC;
+             CLK : in STD_LOGIC;
+             but : in STD_LOGIC;
+             but_debounce : out STD_LOGIC);
+    end component;
 --    component counter_16_bit
 --        port (
 --            counter_in, RESET : in STD_LOGIC;
@@ -73,8 +79,12 @@ architecture struct of main_pwm is
         Generic (N : integer := 16);
         Port ( RESET : in STD_LOGIC;
                clk : in STD_LOGIC;
-               duty : in STD_LOGIC_VECTOR (N-1 downto 0);
-               period : in STD_LOGIC_VECTOR (N-1 downto 0);
+               BTNC, BTNU : in STD_LOGIC;
+               SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
+               LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
+               LED16_G : out STD_LOGIC;
+--               duty : in STD_LOGIC_VECTOR (N-1 downto 0);
+--               period : in STD_LOGIC_VECTOR (N-1 downto 0);
                out_state : in STD_LOGIC_VECTOR (1 downto 0);
                count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
                output : inout STD_LOGIC);
@@ -114,21 +124,29 @@ architecture struct of main_pwm is
            );
     end component;
     
+    -- Clock signals
     signal CLK5HZ : STD_LOGIC;
     signal CLK100HZ : STD_LOGIC;
     signal CLK1000HZ : STD_LOGIC;
     signal RESET : STD_LOGIC := '0';
     
+    -- Debounced Buttons
+    signal BTNC_d : STD_LOGIC;
+    signal BTNU_d : STD_LOGIC;
+    signal BTND_d : STD_LOGIC;
+    signal BTNL_d : STD_LOGIC;
+    signal BTNR_d : STD_LOGIC;
+    
     -- Default counter value
 --    signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
     signal count16bitout : STD_LOGIC_VECTOR(15 downto 0);
 --    signal count16bitpulse : STD_LOGIC;
-    signal PWM_period : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
-    signal PWM_duty : STD_LOGIC_VECTOR(15 downto 0) := X"0800";
+--    signal PWM_period : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
+--    signal PWM_duty : STD_LOGIC_VECTOR(15 downto 0) := X"0800";
     signal PWM_out : STD_LOGIC;
     
     -- FSM
-    signal CLK_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
+--    signal CLK_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
     signal PWM_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
     signal SW_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
     
@@ -147,9 +165,21 @@ Clock1000Hz: clock_divider
     generic map (OUTPUT_FREQUENCY => 1000)
     port map (in_clock => CLK100MHZ, enable => '1', out_clock => CLK1000HZ);
 
+-- Button Debouncing
+--Debounce_BTNC: debounce
+--    port map (clk => CLK1000HZ, reset => RESET, but => BTNC, but_debounce => BTNC_d);
+Debounce_BTNU: debounce
+    port map (clk => CLK1000HZ, reset => RESET, but => BTNU, but_debounce => BTNU_d);
+Debounce_BTND: debounce
+    port map (clk => CLK1000HZ, reset => RESET, but => BTND, but_debounce => BTND_d);
+--Debounce_BTNL: debounce
+--    port map (clk => CLK1000HZ, reset => RESET, but => BTNL, but_debounce => BTNL_d);
+--Debounce_BTNR: debounce
+--    port map (clk => CLK1000HZ, reset => RESET, but => BTNR, but_debounce => BTNR_d);
+
 -- 16 bit down counter
 Counter16: PWM_generator
-    port map (RESET => RESET, clk => CLK1000HZ, duty => PWM_duty, period => PWM_period, out_state => PWM_state, count_out => count16bitout, output => PWM_out);
+    port map (RESET => RESET, clk => CLK1000HZ, BTNC => BTNC, BTNU => BTNU_d, SW => SW, LED => LED, LED16_G => LED16_G, out_state => PWM_state, count_out => count16bitout, output => PWM_out);
 
 -- 7 Segment display
 Binary_2_BCD: binary_bcd
@@ -158,13 +188,13 @@ Seven_Seg: multiplex_seven_seg
     port map (clk => CLK1000HZ, bcd => bcd, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN => AN);
     
 PWM_FSM: Finite_State_Machine
-    port map (CLK => CLK1000HZ, But => BTND, State => PWM_State);
+    port map (CLK => CLK1000HZ, But => BTND_d, State => PWM_State);
     
-SW_FSM: Finite_State_Machine
-        port map (CLK => CLK1000HZ, But => BTNU, State => SW_State);
+--SW_FSM: Finite_State_Machine
+--        port map (CLK => CLK1000HZ, But => BTNU, State => SW_State);
 
-CLK_FSM: Finite_State_Machine
-    port map (CLK => CLK100MHZ, But => BTNL, State => CLK_State);
+--CLK_FSM: Finite_State_Machine
+--    port map (CLK => CLK100MHZ, But => BTNL, State => CLK_State);
 
 LED16_R <= CLK5HZ;
 JA(1) <= CLK5HZ;
@@ -193,29 +223,6 @@ begin
     end if;
 end process;
 
-process(BTNC, SW_State)
-begin
-    if SW_State = "00" then
-        LED <= PWM_period;
-        if (rising_edge(CLK100MHZ) and BTNC = '1') then
-            PWM_period <= SW;
-        end if;
-    elsif SW_State = "01" then
-        LED <= PWM_duty;
-        if (rising_edge(CLK100MHZ) and BTNC = '1') then
-            PWM_duty <= SW;
-        end if;
-    elsif SW_State = "10" then
-        LED <= PWM_period;
-        if (rising_edge(CLK100MHZ) and BTNC = '1') then
-            PWM_period <= SW;
-        end if;
-    elsif SW_State = "11" then
-        LED <= PWM_duty;
-        if (rising_edge(CLK100MHZ) and BTNC = '1') then
-            PWM_duty <= SW;
-        end if;
-    end if;
-end process;
+
 
 end struct;
