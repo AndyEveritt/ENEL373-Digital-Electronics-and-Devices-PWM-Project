@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu May 10 17:18:16 2018
-| Host         : ESL15 running 64-bit major release  (build 9200)
+| Date         : Fri May 11 16:59:01 2018
+| Host         : Andys-Laptop running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_pwm_drc_routed.rpt -pb main_pwm_drc_routed.pb
 | Design       : main_pwm
 | Device       : xc7a100tcsg324-3
@@ -42,12 +42,12 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net PWM_FSM/LED17_R is a gated clock net sourced by a combinational pin PWM_FSM/output_tmp_reg_i_2/O, cell PWM_FSM/output_tmp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net Counter16/output_reg_i_1_n_0 is a gated clock net sourced by a combinational pin Counter16/output_reg_i_1/O, cell Counter16/output_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net PWM_FSM/LED17_R_0 is a gated clock net sourced by a combinational pin PWM_FSM/output_reg_i_2/O, cell PWM_FSM/output_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net Counter16/output_reg_i_1_n_0 is a gated clock net sourced by a combinational pin Counter16/output_reg_i_1/O, cell Counter16/output_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLIO-7#1 Warning

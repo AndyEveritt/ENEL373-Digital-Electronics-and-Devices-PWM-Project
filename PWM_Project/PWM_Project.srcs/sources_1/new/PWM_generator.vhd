@@ -35,11 +35,11 @@ use IEEE.STD_LOGIC_unsigned.ALL;
 entity PWM_generator is
     Generic (N : integer := 16);
     Port ( RESET : in STD_LOGIC;
-           clk : in STD_LOGIC;
+           clk, clk1000hz : in STD_LOGIC;
            BTNC, BTNU : in STD_LOGIC;
            SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
            LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
-           LED16_G : out STD_LOGIC;
+           LED16_R, LED16_G, LED16_B : out STD_LOGIC;
 --           duty : in STD_LOGIC_VECTOR (N-1 downto 0);
 --           period : in STD_LOGIC_VECTOR (N-1 downto 0);
            out_state : in STD_LOGIC_VECTOR (1 downto 0);
@@ -55,9 +55,10 @@ architecture Behavioral of PWM_generator is
 
 signal count : STD_LOGIC_VECTOR (N-1 downto 0);
 signal output_tmp : STD_LOGIC;
-signal duty : STD_LOGIC_VECTOR (N-1 downto 0);
-signal period : STD_LOGIC_VECTOR (N-1 downto 0);
+signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009";
+signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"0005";
 signal SW_State : STD_LOGIC;
+signal count_loop : STD_LOGIC;
 
 begin
 
@@ -76,56 +77,117 @@ begin
     end process clk4;
     
     assign_output: process (count)
-        begin
-            case out_state is
-                when "00" => 
-                    if count < duty then
-                        output <= '1';
-                    else
-                        output <= '0';
-                    end if;
-                when "01" => 
-                    if count = 0 then
-                        output_tmp <= not output_tmp;
-                        output <= output_tmp;
-                    end if;
-                when "10" => 
-                    if count = 0 then
-                        output <= '1';
-                    end if;
-                when "11" => 
-                    if count = 0 then
-                        output <= '0';
-                    end if;
-            end case;
-        end process assign_output;
+    begin
+        LED16_R <= '0';
+        LED16_G <= '0';
+        LED16_B <= '0';
+        
+        
+        
+-- This code works to assert output (LED17_R & JA(2)) high permenantly after counter reaches zero
+
+--        if out_state = "10" then
+--            if count = X"0000" then
+--                output <= '1';
+--            end if;
+--        end if;
+--        output <= output_tmp;
+
+
+-- This code does not work
+-- PWM output is ok
+-- Toggle output does random assignments
+-- Assert High only asserts high when count = 0 else asserts low?
+
+        case out_state is
+            when "00" => 
+                LED16_R <= '1';
+                if count < duty then
+                    output <= '1';
+                else
+                    output <= '0';
+                end if;
+            when "01" =>
+                LED16_G <= '1'; 
+                if count = X"0000" then
+                    output_tmp <= not output_tmp;
+                    output <= output_tmp;
+                end if;
+            when "10" =>
+                LED16_B <= '1';
+                if count = X"0000" then
+                    output <= '1';
+                end if;
+            when "11" =>
+                if count = X"0000" then
+                    output <= '0';
+                end if;
+        end case;
+
+
+-- This code does not work
+-- PWM output is ok
+-- Toggle output does random assignments
+-- Assert High only asserts high when count = 0 else asserts low?
+
+--        if out_state = "00" then
+--            LED16_R <= '1';
+--            if count < duty then
+--                output <= '1';
+--            else
+--                output <= '0';
+--            end if;
+--        end if;
+--        if out_state = "01" then
+--            LED16_G <= '1'; 
+--            if count = X"0000" then
+--                output_tmp <= not output_tmp;
+--                output <= output_tmp;
+--            end if;
+--        end if;
+--        if out_state = "10" then
+--            LED16_B <= '1';
+--            if count = X"0000" then
+--                output <= '1';
+--            end if;
+--        end if;
+--        if out_state = "11" then
+--            if count = X"0000" then
+--                output <= '0';
+--            end if;
+--        end if;
+       
+    end process assign_output;
     
-    process(BTNC)
+    set_PWM: process(BTNC)
         begin
-            if (rising_edge(CLK) and BTNC = '1') then
+            if (rising_edge(clk1000hz) and BTNC = '1') then
                 if SW_State = '0' then
                     period <= SW;
-                    LED <= period;
                 elsif SW_State = '1' then
-                    duty <= SW;
-                    LED <= duty;
+                    duty <= "00000000" & SW(7 downto 0);
                 end if;
             end if;
-        end process;
+        end process set_PWM;
     
     state: process(BTNU)
         begin
-            if (rising_edge(CLK) and BTNU = '1') then
+            if (rising_edge(clk1000hz) and BTNU = '1') then
                 SW_State <= not SW_State;
             end if;
-            if SW_State = '0' then
-                LED <= period;
-            elsif SW_State = '1' then
-                LED <= duty;
-            end if;
-            LED16_G <= SW_State;
+--            LED16_G <= SW_State;
         end process state;
         
+    show_PWM: process(SW_State, BTNC)
+        begin
+            if (rising_edge(clk1000hz)) then
+                if SW_State = '0' then
+                    LED <= period;
+                elsif SW_State = '1' then
+                    LED <= duty;
+                end if;
+            end if;
+        end process show_PWM;
 --    pwm_out: process (count)
 --    begin
 --        if count < duty then

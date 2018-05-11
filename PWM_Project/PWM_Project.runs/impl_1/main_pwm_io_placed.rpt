@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu May 10 17:17:43 2018
-| Host         : ESL15 running 64-bit major release  (build 9200)
+| Date         : Fri May 11 16:58:22 2018
+| Host         : Andys-Laptop running 64-bit major release  (build 9200)
 | Command      : report_io -file main_pwm_io_placed.rpt
 | Design       : main_pwm
 | Device       : xc7a100t
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            58 |
+|            61 |
 +---------------+
 
 
@@ -154,7 +154,7 @@ Table of Contents
 | G11        |             |            | VCCBRAM                      | VCCBRAM     |             |         |            |      |                     |                      |         |            |           |          |      |                  |
 | G12        |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | G13        |             | High Range | IO_0_15                      | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
-| G14        |             | High Range | IO_L15N_T2_DQS_ADV_B_15      | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
+| G14        | LED17_B     | High Range | IO_L15N_T2_DQS_ADV_B_15      | OUTPUT      | LVCMOS33    |      15 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | G15        |             | High Range | VCCO_15                      | VCCO        |             |      15 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
 | G16        |             | High Range | IO_L13N_T2_MRCC_15           | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
 | G17        |             | High Range | IO_L18N_T2_A23_15            | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
@@ -295,8 +295,8 @@ Table of Contents
 | R8         |             | High Range | IO_L24P_T3_34                | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |
 | R9         |             | Dedicated  | VCCO_0                       | VCCO        |             |       0 |            |      |                     |                      |   any** |            |           |          |      |                  |
 | R10        | CB          | High Range | IO_25_14                     | OUTPUT      | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
-| R11        |             | High Range | IO_0_14                      | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
-| R12        |             | High Range | IO_L5P_T0_D06_14             | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
+| R11        | LED17_G     | High Range | IO_0_14                      | OUTPUT      | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
+| R12        | LED16_B     | High Range | IO_L5P_T0_D06_14             | OUTPUT      | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | R13        | SW[7]       | High Range | IO_L5N_T0_D07_14             | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
 | R14        |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | R15        | SW[3]       | High Range | IO_L13N_T2_MRCC_14           | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |

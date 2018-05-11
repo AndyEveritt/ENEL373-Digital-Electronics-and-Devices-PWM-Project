@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Thu May 10 17:18:18 2018
-| Host             : ESL15 running 64-bit major release  (build 9200)
+| Date             : Fri May 11 16:59:01 2018
+| Host             : Andys-Laptop running 64-bit major release  (build 9200)
 | Command          : report_power -file main_pwm_power_routed.rpt -pb main_pwm_power_summary_routed.pb -rpx main_pwm_power_routed.rpx
 | Design           : main_pwm
 | Device           : xc7a100tcsg324-3
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.152 |
-| Dynamic (W)              | 0.048 |
+| Total On-Chip Power (W)  | 0.155 |
+| Dynamic (W)              | 0.050 |
 | Device Static (W)        | 0.104 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.3  |
@@ -50,16 +50,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      396 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      108 |     63400 |            0.17 |
-|   Register     |    <0.001 |      190 |    126800 |            0.15 |
-|   CARRY4       |    <0.001 |       16 |     15850 |            0.10 |
+| Slice Logic    |     0.001 |      419 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      129 |     63400 |            0.20 |
+|   Register     |    <0.001 |      210 |    126800 |            0.17 |
+|   CARRY4       |    <0.001 |       19 |     15850 |            0.12 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |       17 |       --- |             --- |
-| Signals        |     0.001 |      279 |       --- |             --- |
-| I/O            |     0.044 |       57 |       210 |           27.14 |
+|   Others       |     0.000 |       22 |       --- |             --- |
+| Signals        |     0.002 |      327 |       --- |             --- |
+| I/O            |     0.046 |       59 |       210 |           28.10 |
 | Static Power   |     0.104 |          |           |                 |
-| Total          |     0.152 |          |           |                 |
+| Total          |     0.155 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |
 | Vccaux    |       1.800 |     0.020 |       0.002 |      0.018 |
-| Vcco33    |       3.300 |     0.016 |       0.012 |      0.004 |
+| Vcco33    |       3.300 |     0.017 |       0.013 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.004 |       0.000 |      0.004 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,12 +138,15 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| main_pwm        |     0.048 |
+| main_pwm        |     0.050 |
 |   Binary_2_BCD  |    <0.001 |
+|   CLK_FSM       |    <0.001 |
 |   Clock1000Hz   |    <0.001 |
+|   Clock100Hz    |    <0.001 |
 |   Clock5Hz      |    <0.001 |
 |   Counter16     |    <0.001 |
 |   Debounce_BTND |    <0.001 |
+|   Debounce_BTNL |    <0.001 |
 |   Debounce_BTNU |    <0.001 |
 |   PWM_FSM       |    <0.001 |
 |   Seven_Seg     |    <0.001 |

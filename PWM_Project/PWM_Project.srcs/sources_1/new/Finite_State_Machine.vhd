@@ -56,39 +56,39 @@ end process;
 
 process (But)
 begin
-    if (rising_edge(CLK)) then
+    if (rising_edge(CLK) and But = '1') then
         case current_state is
             when s0 =>
-                State <= "00";
-                next_state <= s0;
-            if (But = '1') then
-                State <= "01";
-                next_state <= s1;
-            end if;
+--                State <= "00";
+--                next_state <= s0;
+--                if (But = '1') then
+                    State <= "01";
+                    next_state <= s1;
+--                end if;
             
             when s1 =>
-                State <= "01";
-                next_state <= s1;
-            if (But = '1') then
-                State <= "11";
-                next_state <= s2;
-            end if;
+--                State <= "01";
+--                next_state <= s1;
+--                if (But = '1') then
+                    State <= "10";
+                    next_state <= s2;
+--                end if;
             
             when s2 =>
-                State <= "11";
-                next_state <= s2;
-            if (But = '1') then
-                State <= "10";
-                next_state <= s3;
-            end if;
+--                State <= "11";
+--                next_state <= s2;
+--                if (But = '1') then
+                    State <= "11";
+                    next_state <= s3;
+--                end if;
             
             when s3 =>
-                State <= "10";
-                next_state <= s3;
-            if (But = '1') then
-                State <= "00";
-                next_state <= s0;
-            end if;
+--                State <= "10";
+--                next_state <= s3;
+--                if (But = '1') then
+                    State <= "00";
+                    next_state <= s0;
+--                end if;
         end case;
     end if;
 end process;

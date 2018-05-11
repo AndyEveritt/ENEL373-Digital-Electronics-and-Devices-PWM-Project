@@ -17,9 +17,9 @@ set_property parent.project_path E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Projec
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 read_vhdl -library xil_defaultlib {
-  E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd
   E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd
   E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd
+  E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd
   E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd
   E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd
   E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd
