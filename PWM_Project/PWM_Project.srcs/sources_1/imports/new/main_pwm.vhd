@@ -83,11 +83,10 @@ architecture struct of main_pwm is
                SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
                LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
                LED16_R, LED16_G, LED16_B : out STD_LOGIC; -- RGB LEDs
---               duty : in STD_LOGIC_VECTOR (N-1 downto 0);
---               period : in STD_LOGIC_VECTOR (N-1 downto 0);
                out_state : in STD_LOGIC_VECTOR (1 downto 0);
                count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
-               output : inout STD_LOGIC);
+               output : out STD_LOGIC
+               );
     end component;
     
     component binary_bcd
@@ -145,6 +144,7 @@ architecture struct of main_pwm is
 --    signal PWM_period : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
 --    signal PWM_duty : STD_LOGIC_VECTOR(15 downto 0) := X"0800";
     signal PWM_out : STD_LOGIC;
+    signal output_tmp : STD_LOGIC;
     
     -- FSM
     signal CLK_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
@@ -198,13 +198,25 @@ CLK_FSM: Finite_State_Machine
     port map (CLK => CLK1000HZ, But => BTNL_d, State => CLK_State);
 
 
-
 -- Flash LED(1) when counter reaches 0
 process(PWM_out)
 begin
     LED17_R <= PWM_out;
     JA(2) <= PWM_out;
+            
 end process;
+
+
+-- Flash LED(1) when counter reaches 0
+--process(PWM_out)
+--begin
+--    case PWM_State is
+--        when "00" =>
+--            LED17_R <= PWM_out;
+--            JA(2) <= PWM_out;
+--        when "10" =>
+            
+--end process;
 
 process(CLK_State)
 begin
@@ -223,15 +235,6 @@ begin
         JA(1) <= CLK;
     end if;
 end process;
-        
--- update counter period based on switch input
---period_register : process(BTNC)
---begin
---    if (rising_edge(CLK100MHZ) and BTNC = '1') then
---        PWM_period <= SW;
---        LED <= SW;
---    end if;
---end process;
 
 -- reset counter using currently loaded count16bit
 reset_btn : process(BTNR)

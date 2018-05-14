@@ -1,4 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity binary_bcd
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sim_1/new/tb_bcd.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity tb_bcd
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity PWM_generator
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sim_1/new/PWM_generator_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity PWM_generator_tb

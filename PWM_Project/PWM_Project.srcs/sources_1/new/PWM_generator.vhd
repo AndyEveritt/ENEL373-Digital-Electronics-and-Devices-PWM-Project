@@ -40,15 +40,10 @@ entity PWM_generator is
            SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
            LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
            LED16_R, LED16_G, LED16_B : out STD_LOGIC;
---           duty : in STD_LOGIC_VECTOR (N-1 downto 0);
---           period : in STD_LOGIC_VECTOR (N-1 downto 0);
            out_state : in STD_LOGIC_VECTOR (1 downto 0);
            count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
-           output : out STD_LOGIC);
---           pwm : out STD_LOGIC;
---           toggle : inout STD_LOGIC;
---           high : out STD_LOGIC;
---           low : out STD_LOGIC);
+           output : out STD_LOGIC
+           );
 end PWM_generator;
 
 architecture Behavioral of PWM_generator is
@@ -56,9 +51,14 @@ architecture Behavioral of PWM_generator is
 signal count : STD_LOGIC_VECTOR (N-1 downto 0);
 signal output_tmp : STD_LOGIC;
 signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009";
-signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"0005";
+signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"004D"; -- 4D is roughly 30% duty cycle. X"00FF" = 100%, X"0000" = 0%
 signal SW_State : STD_LOGIC;
-signal count_loop : STD_LOGIC;
+signal count_zero : STD_LOGIC := '0';
+signal count_toggle : STD_LOGIC := '0';
+signal pwm : STD_LOGIC;
+signal toggle : STD_LOGIC;
+signal high : STD_LOGIC;
+signal low : STD_LOGIC;
 
 begin
 
@@ -69,12 +69,23 @@ begin
         elsif rising_edge(clk) then
             if count = 0 then
                 count <= period;
+                count_zero <= '1';
+                count_toggle <= not count_toggle;
             else
                 count <= count - 1;
             end if;
         end if;
         count_out <= count;
     end process clk4;
+    
+    process (out_state)
+    begin
+        if rising_edge(clk) then
+            if (out_state = "10" or out_state = "11") then
+                count_zero <= '0';
+            end if;
+        end if;
+    end process;
     
     assign_output: process (count)
     begin
@@ -99,29 +110,48 @@ begin
 -- Toggle output does random assignments
 -- Assert High only asserts high when count = 0 else asserts low?
 
+--        case out_state is
+--            when "00" => 
+--                LED16_R <= '1';
+--                if ("11111111" * count) < (period * duty(7 downto 0)) then
+--                    output <= '1';
+--                else
+--                    output <= '0';
+--                end if;
+--            when "01" =>
+--                LED16_G <= '1'; 
+--                if count_toggle = '1' then
+--                    output_tmp <= not output_tmp;
+--                    output <= output_tmp;
+--                end if;
+--            when "10" =>
+--                LED16_B <= '1';
+--                output <= '0';
+--                if count_zero = '1' then
+--                    output <= '1';
+--                end if;
+--            when "11" =>
+--                output <= '1';
+--                if count_zero = '1' then
+--                    output <= '0';
+--                end if;
+--        end case;
+
+
         case out_state is
             when "00" => 
                 LED16_R <= '1';
-                if count < duty then
-                    output <= '1';
-                else
-                    output <= '0';
-                end if;
+                output <= pwm;
             when "01" =>
-                LED16_G <= '1'; 
-                if count = X"0000" then
-                    output_tmp <= not output_tmp;
-                    output <= output_tmp;
-                end if;
+                LED16_G <= '1';
+                output <= toggle;
             when "10" =>
                 LED16_B <= '1';
-                if count = X"0000" then
-                    output <= '1';
-                end if;
+                output <= high;
             when "11" =>
-                if count = X"0000" then
-                    output <= '0';
-                end if;
+                output <= low;
+            when others =>
+                output <= '1';
         end case;
 
 
@@ -132,7 +162,7 @@ begin
 
 --        if out_state = "00" then
 --            LED16_R <= '1';
---            if count < duty then
+--            if ("11111111" * count) < (period * duty(7 downto 0)) then
 --                output <= '1';
 --            else
 --                output <= '0';
@@ -188,35 +218,36 @@ begin
                 end if;
             end if;
         end process show_PWM;
---    pwm_out: process (count)
---    begin
---        if count < duty then
---            pwm <= '1';
---        else
---            pwm <= '0';
---        end if;
---    end process pwm_out;
+        
+        
+    pwm_out: process (count)
+    begin
+        if ("11111111" * count) < (period * duty(7 downto 0)) then
+            pwm <= '1';
+        else
+            pwm <= '0';
+    end if;
+    end process pwm_out;
     
---    toggle_out: process (count)
---    begin
---        if count = 0 then
---            toggle <= not toggle;
---        end if;
---    end process toggle_out;
+    toggle_out: process (count)
+    begin
+        if count = 0 then
+            toggle <= not toggle;
+        end if;
+    end process toggle_out;
     
---    high_out: process (count)
---    begin
---        if count = 0 then
---            high <= '1';
-
---        end if;
---    end process high_out;
+    high_out: process (count)
+    begin
+        if count = 0 then
+            high <= '1';
+        end if;
+    end process high_out;
     
---    low_out: process (count)
---    begin
---        if count = 0 then
---            lo
---        end if;
---    end process low_out;
+    low_out: process (count)
+    begin
+        if count = 0 then
+            low <= '0';
+        end if;
+    end process low_out;
 
 end Behavioral;

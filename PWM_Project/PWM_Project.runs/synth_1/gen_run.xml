@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1526014629">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1526282579">
   <File Type="RDS-PROPCONSTRS" Name="main_pwm_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="main_pwm.tcl"/>
   <File Type="RDS-RDS" Name="main_pwm.vds"/>
