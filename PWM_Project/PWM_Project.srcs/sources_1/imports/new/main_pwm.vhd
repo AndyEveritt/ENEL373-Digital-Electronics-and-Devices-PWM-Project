@@ -78,15 +78,23 @@ architecture struct of main_pwm is
     component PWM_generator
         Generic (N : integer := 16);
         Port ( RESET : in STD_LOGIC;
-               clk, clk1000hz : in STD_LOGIC;
-               BTNC, BTNU : in STD_LOGIC;
-               SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
-               LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
-               LED16_R, LED16_G, LED16_B : out STD_LOGIC; -- RGB LEDs
-               out_state : in STD_LOGIC_VECTOR (1 downto 0);
-               count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
-               output : out STD_LOGIC
-               );
+            clk, clk1000hz : in STD_LOGIC;
+            period : STD_LOGIC_VECTOR (N-1 downto 0);
+            duty : STD_LOGIC_VECTOR (N-1 downto 0);
+            count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
+            output : out STD_LOGIC
+            );
+    end component;
+    
+    component toggle_generator
+        Generic (N : integer := 16);
+        Port ( RESET : in STD_LOGIC;
+            clk, clk1000hz : in STD_LOGIC;
+            period : STD_LOGIC_VECTOR (N-1 downto 0);
+            duty : STD_LOGIC_VECTOR (N-1 downto 0);
+            count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
+            output : out STD_LOGIC
+            );
     end component;
     
     component binary_bcd
@@ -139,12 +147,15 @@ architecture struct of main_pwm is
     
     -- Default counter value
 --    signal count16bit : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
-    signal count16bitout : STD_LOGIC_VECTOR(15 downto 0);
+    signal PWM_counter_out : STD_LOGIC_VECTOR(15 downto 0);
+    signal toggle_counter_out : STD_LOGIC_VECTOR(15 downto 0);
 --    signal count16bitpulse : STD_LOGIC;
---    signal PWM_period : STD_LOGIC_VECTOR(15 downto 0) := X"8000";
---    signal PWM_duty : STD_LOGIC_VECTOR(15 downto 0) := X"0800";
+    signal PWM_period : STD_LOGIC_VECTOR(15 downto 0) := X"0009";
+    signal PWM_duty : STD_LOGIC_VECTOR(15 downto 0) := X"004D";
     signal PWM_out : STD_LOGIC;
+    signal toggle_out : STD_LOGIC;
     signal output_tmp : STD_LOGIC;
+    signal SW_State : STD_LOGIC;
     
     -- FSM
     signal CLK_state : STD_LOGIC_VECTOR (1 downto 0) := "00";
@@ -179,12 +190,14 @@ Debounce_BTNL: debounce
 --    port map (clk => CLK1000HZ, reset => RESET, but => BTNR, but_debounce => BTNR_d);
 
 -- 16 bit down counter
-Counter16: PWM_generator
-    port map (RESET => RESET, clk => CLK, clk1000hz => CLK1000HZ, BTNC => BTNC, BTNU => BTNU_d, SW => SW, LED => LED, LED16_R => LED16_R, LED16_G => LED16_G, LED16_B => LED16_B, out_state => PWM_state, count_out => count16bitout, output => PWM_out);
+Counter16_PWM: PWM_generator
+    port map (RESET => RESET, clk => CLK, clk1000hz => CLK1000HZ, period => PWM_period, duty => PWM_duty, count_out => PWM_counter_out, output => PWM_out);
+Counter16_Toggle: toggle_generator
+    port map (RESET => RESET, clk => CLK, clk1000hz => CLK1000HZ, period => PWM_period, duty => PWM_duty, count_out => toggle_counter_out, output => toggle_out);
 
 -- 7 Segment display
 Binary_2_BCD: binary_bcd
-    port map (clk => CLK1000HZ, reset => RESET, binary_in => count16bitout, bcd => bcd);
+    port map (clk => CLK1000HZ, reset => RESET, binary_in => PWM_counter_out, bcd => bcd);
 Seven_Seg: multiplex_seven_seg
     port map (clk => CLK1000HZ, bcd => bcd, CA => CA, CB => CB, CC => CC, CD => CD, CE => CE, CF => CF, CG => CG, AN => AN);
     
@@ -199,25 +212,31 @@ CLK_FSM: Finite_State_Machine
 
 
 -- Flash LED(1) when counter reaches 0
-process(PWM_out)
-begin
-    LED17_R <= PWM_out;
-    JA(2) <= PWM_out;
-            
-end process;
-
-
--- Flash LED(1) when counter reaches 0
---process(PWM_out)
+--process(toggle_out)
 --begin
---    case PWM_State is
---        when "00" =>
---            LED17_R <= PWM_out;
---            JA(2) <= PWM_out;
---        when "10" =>
+--    LED17_R <= toggle_out;
+--    JA(2) <= toggle_out;
             
 --end process;
 
+
+-- Flash LED(1) when counter reaches 0
+process(CLK)
+begin
+    LED17_G <= '0';
+    case PWM_State is
+        when "00" =>
+            LED17_R <= PWM_out;
+            JA(2) <= PWM_out;
+        when "01" =>
+            LED17_R <= toggle_out;
+            JA(2) <= toggle_out;
+        when others =>
+            LED17_G <= '1';
+    end case;
+end process;
+
+-- Select clock speed using left button
 process(CLK_State)
 begin
     if (rising_edge(CLK100MHZ)) then
@@ -236,8 +255,40 @@ begin
     end if;
 end process;
 
+-- Set either period or duty cycle as current switch values depending on SW_State
+set_PWM: process(BTNC)
+begin
+    if (rising_edge(CLK1000HZ) and BTNC = '1') then
+        if SW_State = '0' then
+            PWM_period <= SW;
+        elsif SW_State = '1' then
+            PWM_duty <= "00000000" & SW(7 downto 0);
+        end if;
+    end if;
+end process set_PWM;
+
+-- Change state to allow either user defined period or duty cycle inputs using switches
+state: process(BTNU_d)
+begin
+    if (rising_edge(CLK1000HZ) and BTNU_d = '1') then
+        SW_State <= not SW_State;
+    end if;
+end process state;
+
+-- Display period or duty cycle on LEDs above switches
+show_PWM: process(SW_State, BTNC)
+begin
+    if (rising_edge(CLK1000HZ)) then
+        if SW_State = '0' then
+            LED <= PWM_period;
+        elsif SW_State = '1' then
+            LED <= PWM_duty;
+        end if;
+    end if;
+end process show_PWM;
+        
 -- reset counter using currently loaded count16bit
-reset_btn : process(BTNR)
+reset_btn: process(BTNR)
 begin
     if (rising_edge(CLK100MHZ)) then
         RESET <= BTNR;

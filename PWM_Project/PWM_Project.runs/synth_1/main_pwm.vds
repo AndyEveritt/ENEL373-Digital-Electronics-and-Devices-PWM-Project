@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Mon May 14 19:23:01 2018
-# Process ID: 10708
+# Start of session at: Mon May 14 20:33:41 2018
+# Process ID: 9792
 # Current directory: E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.runs/synth_1
 # Command line: vivado.exe -log main_pwm.vds -mode batch -messageDb vivado.pb -notrace -source main_pwm.tcl
 # Log file: E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.runs/synth_1/main_pwm.vds
@@ -19,81 +19,114 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3636 
+INFO: Helper process launched with PID 8040 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 278.078 ; gain = 71.391
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 278.688 ; gain = 71.500
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'main_pwm' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:54]
 	Parameter OUTPUT_FREQUENCY bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock5Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:159]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock5Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:170]
 INFO: [Synth 8-638] synthesizing module 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
 	Parameter INPUT_FREQUENCY bound to: 100000000 - type: integer 
 	Parameter OUTPUT_FREQUENCY bound to: 5 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider' (1#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
 	Parameter OUTPUT_FREQUENCY bound to: 100 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock100Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:162]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock100Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:173]
 INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized1' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
 	Parameter INPUT_FREQUENCY bound to: 100000000 - type: integer 
 	Parameter OUTPUT_FREQUENCY bound to: 100 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized1' (1#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
 	Parameter OUTPUT_FREQUENCY bound to: 1000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock1000Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:165]
+INFO: [Synth 8-3491] module 'clock_divider' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:21' bound to instance 'Clock1000Hz' of component 'clock_divider' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:176]
 INFO: [Synth 8-638] synthesizing module 'clock_divider__parameterized3' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
 	Parameter INPUT_FREQUENCY bound to: 100000000 - type: integer 
 	Parameter OUTPUT_FREQUENCY bound to: 1000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider__parameterized3' (1#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/Simple_VHDL_modules_RTL_Schematic_examples/clock_divider.vhd:54]
-INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTNU' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:172]
+INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTNU' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:183]
 INFO: [Synth 8-638] synthesizing module 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'debounce' (2#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:41]
-INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTND' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:174]
-INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTNL' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:176]
+INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTND' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:185]
+INFO: [Synth 8-3491] module 'debounce' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/debounce.vhd:34' bound to instance 'Debounce_BTNL' of component 'debounce' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:187]
 	Parameter N bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'PWM_generator' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:35' bound to instance 'Counter16' of component 'PWM_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:182]
-INFO: [Synth 8-638] synthesizing module 'PWM_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:49]
+INFO: [Synth 8-3491] module 'PWM_generator' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:35' bound to instance 'Counter16_PWM' of component 'PWM_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:193]
+INFO: [Synth 8-638] synthesizing module 'PWM_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:46]
 	Parameter N bound to: 16 - type: integer 
-WARNING: [Synth 8-614] signal 'count' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:65]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:81]
-INFO: [Synth 8-226] default block is never used [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:141]
-WARNING: [Synth 8-614] signal 'out_state' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:90]
-WARNING: [Synth 8-614] signal 'pwm' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:90]
-WARNING: [Synth 8-614] signal 'toggle' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:90]
-WARNING: [Synth 8-614] signal 'high' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:90]
-WARNING: [Synth 8-614] signal 'low' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:90]
-WARNING: [Synth 8-614] signal 'clk1000hz' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:192]
-WARNING: [Synth 8-614] signal 'clk1000hz' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:203]
-WARNING: [Synth 8-614] signal 'clk1000hz' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:211]
-WARNING: [Synth 8-614] signal 'period' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:223]
-WARNING: [Synth 8-614] signal 'duty' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:223]
-WARNING: [Synth 8-614] signal 'toggle' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'PWM_generator' (3#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:49]
+WARNING: [Synth 8-614] signal 'count' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:62]
+WARNING: [Synth 8-614] signal 'period' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:213]
+WARNING: [Synth 8-614] signal 'duty' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:213]
+WARNING: [Synth 8-614] signal 'pwm' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'PWM_generator' (3#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:46]
 	Parameter N bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'binary_bcd' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd:26' bound to instance 'Binary_2_BCD' of component 'binary_bcd' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:186]
+INFO: [Synth 8-3491] module 'toggle_generator' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/toggle_generator.vhd:35' bound to instance 'Counter16_Toggle' of component 'toggle_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:195]
+INFO: [Synth 8-638] synthesizing module 'toggle_generator' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/toggle_generator.vhd:46]
+	Parameter N bound to: 16 - type: integer 
+WARNING: [Synth 8-614] signal 'count' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/toggle_generator.vhd:53]
+WARNING: [Synth 8-614] signal 'toggle' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/toggle_generator.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'toggle_generator' (4#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/toggle_generator.vhd:46]
+	Parameter N bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'binary_bcd' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd:26' bound to instance 'Binary_2_BCD' of component 'binary_bcd' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:199]
 INFO: [Synth 8-638] synthesizing module 'binary_bcd' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd:36]
 	Parameter N bound to: 16 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'binary_bcd' (4#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd:36]
-INFO: [Synth 8-3491] module 'multiplex_seven_seg' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:26' bound to instance 'Seven_Seg' of component 'multiplex_seven_seg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:188]
+INFO: [Synth 8-256] done synthesizing module 'binary_bcd' (5#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/binary_bcd.vhd:36]
+INFO: [Synth 8-3491] module 'multiplex_seven_seg' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:26' bound to instance 'Seven_Seg' of component 'multiplex_seven_seg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:201]
 INFO: [Synth 8-638] synthesizing module 'multiplex_seven_seg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:42]
 WARNING: [Synth 8-614] signal 'bcd' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:62]
 WARNING: [Synth 8-614] signal 'sevenseg' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:91]
-INFO: [Synth 8-256] done synthesizing module 'multiplex_seven_seg' (5#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:42]
-WARNING: [Synth 8-5640] Port 'reset' is missing in component declaration [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:118]
-INFO: [Synth 8-3491] module 'Finite_State_Machine' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:34' bound to instance 'PWM_FSM' of component 'Finite_State_Machine' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:191]
+INFO: [Synth 8-256] done synthesizing module 'multiplex_seven_seg' (6#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/multiplex_seven_seg.vhd:42]
+WARNING: [Synth 8-5640] Port 'reset' is missing in component declaration [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:126]
+INFO: [Synth 8-3491] module 'Finite_State_Machine' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:34' bound to instance 'PWM_FSM' of component 'Finite_State_Machine' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:204]
 INFO: [Synth 8-638] synthesizing module 'Finite_State_Machine' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:42]
 WARNING: [Synth 8-614] signal 'CLK' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'Finite_State_Machine' (6#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:42]
-WARNING: [Synth 8-5640] Port 'reset' is missing in component declaration [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:118]
-INFO: [Synth 8-3491] module 'Finite_State_Machine' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:34' bound to instance 'CLK_FSM' of component 'Finite_State_Machine' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:197]
-WARNING: [Synth 8-2897] clock signal used as data [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:232]
-WARNING: [Synth 8-614] signal 'CLK100MHZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:221]
-WARNING: [Synth 8-614] signal 'CLK100MHZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:240]
-WARNING: [Synth 8-3848] Net LED17_G in module/entity main_pwm does not have driver. [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'Finite_State_Machine' (7#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:42]
+WARNING: [Synth 8-5640] Port 'reset' is missing in component declaration [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:126]
+INFO: [Synth 8-3491] module 'Finite_State_Machine' declared at 'E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:34' bound to instance 'CLK_FSM' of component 'Finite_State_Machine' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:210]
+WARNING: [Synth 8-614] signal 'PWM_state' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:224]
+WARNING: [Synth 8-614] signal 'PWM_out' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:224]
+WARNING: [Synth 8-614] signal 'toggle_out' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:224]
+WARNING: [Synth 8-2897] clock signal used as data [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:250]
+WARNING: [Synth 8-614] signal 'CLK100MHZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:239]
+WARNING: [Synth 8-614] signal 'CLK1000HZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:258]
+WARNING: [Synth 8-614] signal 'CLK1000HZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:270]
+WARNING: [Synth 8-614] signal 'CLK1000HZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:278]
+WARNING: [Synth 8-614] signal 'CLK100MHZ' is read in the process but is not in the sensitivity list [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:290]
+WARNING: [Synth 8-3848] Net LED16_R in module/entity main_pwm does not have driver. [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:41]
+WARNING: [Synth 8-3848] Net LED16_G in module/entity main_pwm does not have driver. [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:41]
+WARNING: [Synth 8-3848] Net LED16_B in module/entity main_pwm does not have driver. [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:41]
 WARNING: [Synth 8-3848] Net LED17_B in module/entity main_pwm does not have driver. [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:41]
-INFO: [Synth 8-256] done synthesizing module 'main_pwm' (7#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:54]
+INFO: [Synth 8-256] done synthesizing module 'main_pwm' (8#1) [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:54]
 WARNING: [Synth 8-3331] design Finite_State_Machine has unconnected port RESET
-WARNING: [Synth 8-3331] design main_pwm has unconnected port LED17_G
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port clk1000hz
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[15]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[14]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[13]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[12]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[11]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[10]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[9]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[8]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[7]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[6]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[5]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[4]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[3]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[2]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[1]
+WARNING: [Synth 8-3331] design toggle_generator has unconnected port duty[0]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port clk1000hz
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[15]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[14]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[13]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[12]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[11]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[10]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[9]
+WARNING: [Synth 8-3331] design PWM_generator has unconnected port duty[8]
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_R
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_G
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_B
 WARNING: [Synth 8-3331] design main_pwm has unconnected port LED17_B
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 315.477 ; gain = 108.789
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 315.137 ; gain = 107.949
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -103,7 +136,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:17 . Memory (MB): peak = 315.477 ; gain = 108.789
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 315.137 ; gain = 107.949
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-3
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -119,22 +152,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 619.387 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 620.184 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:39 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:39 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:39 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "out_clock" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "out_clock" won't be mapped to RAM because it is too sparse
@@ -143,11 +176,10 @@ INFO: [Synth 8-5546] ROM "binary_next" won't be mapped to RAM because it is too 
 INFO: [Synth 8-5546] ROM "state_next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "bcds_out_reg_next" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-4471] merging register 'next_state_reg[1:0]' into 'State_reg[1:0]' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/Finite_State_Machine.vhd:53]
-WARNING: [Synth 8-327] inferring latch for variable 'low_reg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:249]
-WARNING: [Synth 8-327] inferring latch for variable 'high_reg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:242]
-WARNING: [Synth 8-327] inferring latch for variable 'toggle_reg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/new/PWM_generator.vhd:235]
+WARNING: [Synth 8-327] inferring latch for variable 'LED17_R_reg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:228]
+WARNING: [Synth 8-327] inferring latch for variable 'LED17_G_reg' [E:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sources_1/imports/new/main_pwm.vhd:234]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:39 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:34 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -173,23 +205,23 @@ Detailed RTL Component Info :
 	               16 Bit    Registers := 3     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 16    
+	                1 Bit    Registers := 17    
 +---Muxes : 
 	   3 Input     25 Bit        Muxes := 1     
 	   3 Input     20 Bit        Muxes := 1     
 	   4 Input     20 Bit        Muxes := 1     
 	   3 Input     17 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
 	   6 Input      8 Bit        Muxes := 1     
 	  11 Input      7 Bit        Muxes := 1     
 	   4 Input      5 Bit        Muxes := 1     
 	   6 Input      4 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 3     
 	   3 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 4     
-	   4 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 8     
 	   5 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -200,9 +232,12 @@ Hierarchical RTL Component report
 Module main_pwm 
 Detailed RTL Component Info : 
 +---Registers : 
-	                1 Bit    Registers := 3     
+	               16 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
 +---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
 Module clock_divider 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -240,14 +275,10 @@ Module debounce
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 3     
-Module PWM_generator 
+Module toggle_generator 
 Detailed RTL Component Info : 
 +---Registers : 
-	               16 Bit    Registers := 3     
 	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 4     
 Module binary_bcd 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -289,7 +320,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:39 . Memory (MB): peak = 619.387 ; gain = 412.699
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:35 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -305,19 +336,21 @@ INFO: [Synth 8-5546] ROM "out_clock0" won't be mapped to RAM because it is too s
 INFO: [Synth 8-5546] ROM "Clock100Hz/out_clock" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "out_clock0" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "Clock5Hz/out_clock" won't be mapped to RAM because address size (26) is larger than maximum supported(25)
-DSP Report: Generating DSP Counter16/multOp, operation Mode is: A*B.
-DSP Report: operator Counter16/multOp is absorbed into DSP Counter16/multOp.
-DSP Report: Generating DSP Counter16/multOp, operation Mode is: A*(B:0xff).
-DSP Report: operator Counter16/multOp is absorbed into DSP Counter16/multOp.
+DSP Report: Generating DSP Counter16_PWM/multOp, operation Mode is: A*B.
+DSP Report: operator Counter16_PWM/multOp is absorbed into DSP Counter16_PWM/multOp.
+DSP Report: Generating DSP Counter16_PWM/multOp, operation Mode is: A*(B:0xff).
+DSP Report: operator Counter16_PWM/multOp is absorbed into DSP Counter16_PWM/multOp.
 WARNING: [Synth 8-3917] design main_pwm has port AN[7] driven by constant 1
 WARNING: [Synth 8-3917] design main_pwm has port AN[6] driven by constant 1
 WARNING: [Synth 8-3917] design main_pwm has port AN[5] driven by constant 1
-WARNING: [Synth 8-3331] design main_pwm has unconnected port LED17_G
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_R
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_G
+WARNING: [Synth 8-3331] design main_pwm has unconnected port LED16_B
 WARNING: [Synth 8-3331] design main_pwm has unconnected port LED17_B
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:35 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Parallel Reinference  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:35 . Memory (MB): peak = 620.184 ; gain = 412.996
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -343,28 +376,28 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[8]' (FDE) to 'Counter16/duty_reg[9]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[9]' (FDE) to 'Counter16/duty_reg[10]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[10]' (FDE) to 'Counter16/duty_reg[11]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[11]' (FDE) to 'Counter16/duty_reg[12]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[12]' (FDE) to 'Counter16/duty_reg[13]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[13]' (FDE) to 'Counter16/duty_reg[14]'
-INFO: [Synth 8-3886] merging instance 'Counter16/duty_reg[14]' (FDE) to 'Counter16/duty_reg[15]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Counter16/duty_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Counter16/low_reg )
-WARNING: [Synth 8-3332] Sequential element (Counter16/low_reg) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[15]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[14]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[13]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[12]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[11]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[10]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[9]) is unused and will be removed from module main_pwm.
-WARNING: [Synth 8-3332] Sequential element (Counter16/duty_reg[8]) is unused and will be removed from module main_pwm.
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[8]' (FDE) to 'PWM_duty_reg[9]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[9]' (FDE) to 'PWM_duty_reg[10]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[10]' (FDE) to 'PWM_duty_reg[11]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[11]' (FDE) to 'PWM_duty_reg[12]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[12]' (FDE) to 'PWM_duty_reg[13]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[13]' (FDE) to 'PWM_duty_reg[14]'
+INFO: [Synth 8-3886] merging instance 'PWM_duty_reg[14]' (FDE) to 'PWM_duty_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PWM_duty_reg[15] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (LED17_G_reg)
+WARNING: [Synth 8-3332] Sequential element (LED17_G_reg) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[15]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[14]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[13]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[12]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[11]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[10]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[9]) is unused and will be removed from module main_pwm.
+WARNING: [Synth 8-3332] Sequential element (PWM_duty_reg[8]) is unused and will be removed from module main_pwm.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:41 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:38 . Memory (MB): peak = 620.184 ; gain = 412.996
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:41 . Memory (MB): peak = 619.387 ; gain = 412.699
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:38 . Memory (MB): peak = 620.184 ; gain = 412.996
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -378,10 +411,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:51 . Memory (MB): peak = 623.332 ; gain = 416.645
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:49 . Memory (MB): peak = 623.641 ; gain = 416.453
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:51 . Memory (MB): peak = 634.020 ; gain = 427.332
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:49 . Memory (MB): peak = 635.133 ; gain = 427.945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -393,16 +426,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:49 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:49 . Memory (MB): peak = 647.020 ; gain = 439.832
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:49 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -419,7 +452,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -432,7 +465,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -444,25 +477,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -478,58 +511,59 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |BUFG    |     2|
-|2     |CARRY4  |    22|
+|1     |BUFG    |     3|
+|2     |CARRY4  |    26|
 |3     |DSP48E1 |     2|
 |4     |LUT1    |    64|
-|5     |LUT2    |    19|
-|6     |LUT3    |    36|
-|7     |LUT4    |    49|
-|8     |LUT5    |    26|
-|9     |LUT6    |    61|
-|10    |FDCE    |    79|
-|11    |FDRE    |   129|
+|5     |LUT2    |    16|
+|6     |LUT3    |    37|
+|7     |LUT4    |    52|
+|8     |LUT5    |    25|
+|9     |LUT6    |    92|
+|10    |FDCE    |    95|
+|11    |FDRE    |   130|
 |12    |LD      |     1|
 |13    |IBUF    |    22|
-|14    |OBUF    |    37|
-|15    |OBUFT   |     2|
+|14    |OBUF    |    35|
+|15    |OBUFT   |     4|
 +------+--------+------+
 
 Report Instance Areas: 
-+------+----------------+------------------------------+------+
-|      |Instance        |Module                        |Cells |
-+------+----------------+------------------------------+------+
-|1     |top             |                              |   551|
-|2     |  Binary_2_BCD  |binary_bcd                    |   125|
-|3     |  CLK_FSM       |Finite_State_Machine          |     7|
-|4     |  Clock1000Hz   |clock_divider__parameterized3 |    49|
-|5     |  Clock100Hz    |clock_divider__parameterized1 |    58|
-|6     |  Clock5Hz      |clock_divider                 |    67|
-|7     |  Counter16     |PWM_generator                 |   149|
-|8     |  Debounce_BTND |debounce                      |     3|
-|9     |  Debounce_BTNL |debounce_0                    |     3|
-|10    |  Debounce_BTNU |debounce_1                    |     4|
-|11    |  PWM_FSM       |Finite_State_Machine_2        |     9|
-|12    |  Seven_Seg     |multiplex_seven_seg           |    11|
-+------+----------------+------------------------------+------+
++------+-------------------+------------------------------+------+
+|      |Instance           |Module                        |Cells |
++------+-------------------+------------------------------+------+
+|1     |top                |                              |   604|
+|2     |  Binary_2_BCD     |binary_bcd                    |   125|
+|3     |  CLK_FSM          |Finite_State_Machine          |     7|
+|4     |  Clock1000Hz      |clock_divider__parameterized3 |    49|
+|5     |  Clock100Hz       |clock_divider__parameterized1 |    58|
+|6     |  Clock5Hz         |clock_divider                 |    67|
+|7     |  Counter16_PWM    |PWM_generator                 |    85|
+|8     |  Counter16_Toggle |toggle_generator              |    58|
+|9     |  Debounce_BTND    |debounce                      |     3|
+|10    |  Debounce_BTNL    |debounce_0                    |     3|
+|11    |  Debounce_BTNU    |debounce_1                    |     4|
+|12    |  PWM_FSM          |Finite_State_Machine_2        |     7|
+|13    |  Seven_Seg        |multiplex_seven_seg           |    11|
++------+-------------------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 646.758 ; gain = 440.070
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 646.758 ; gain = 136.160
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:53 . Memory (MB): peak = 646.758 ; gain = 440.070
+Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:31 . Memory (MB): peak = 647.020 ; gain = 134.785
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:50 . Memory (MB): peak = 647.020 ; gain = 439.832
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 47 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 51 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 1 inverter(s) to 63 load pin(s).
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 64 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
-  LD => LDCE: 1 instances
+  LD => LDCE (inverted pins: G): 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-70 Infos, 47 Warnings, 0 Critical Warnings and 0 Errors encountered.
+72 Infos, 77 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:50 . Memory (MB): peak = 646.758 ; gain = 440.070
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 646.758 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon May 14 19:23:57 2018...
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:48 . Memory (MB): peak = 647.020 ; gain = 439.832
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 647.020 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon May 14 20:34:37 2018...
