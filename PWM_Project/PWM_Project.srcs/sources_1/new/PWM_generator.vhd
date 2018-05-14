@@ -36,10 +36,15 @@ entity PWM_generator is
     Generic (N : integer := 16);
     Port ( RESET : in STD_LOGIC;
            clk, clk1000hz : in STD_LOGIC;
-           period : STD_LOGIC_VECTOR (N-1 downto 0);
-           duty : STD_LOGIC_VECTOR (N-1 downto 0);
+           BTNU, BTNC : in STD_LOGIC; -- Buttons
+           SW : in STD_LOGIC_VECTOR (15 downto 0);
+           LED : out STD_LOGIC_VECTOR (15 downto 0);
+--           period : STD_LOGIC_VECTOR (N-1 downto 0);
+--           duty : STD_LOGIC_VECTOR (N-1 downto 0);
+           count_zero : out STD_LOGIC;
            count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
-           output : out STD_LOGIC
+           output : out STD_LOGIC;
+           toggle_output : out STD_LOGIC
            );
 end PWM_generator;
 
@@ -47,13 +52,12 @@ architecture Behavioral of PWM_generator is
 
 signal count : STD_LOGIC_VECTOR (N-1 downto 0);
 signal output_tmp : STD_LOGIC;
---signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009";
---signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"004D"; -- 4D is roughly 30% duty cycle. X"00FF" = 100%, X"0000" = 0%
---signal SW_State : STD_LOGIC;
---signal count_zero : STD_LOGIC := '0';
---signal count_toggle : STD_LOGIC := '0';
+signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009";
+signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"004D"; -- 4D is roughly 30% duty cycle. X"00FF" = 100%, X"0000" = 0%
+signal SW_State : STD_LOGIC;
+--signal count_zero : STD_LOGIC;
 signal pwm : STD_LOGIC;
---signal toggle : STD_LOGIC;
+signal toggle : STD_LOGIC;
 --signal high : STD_LOGIC;
 --signal low : STD_LOGIC;
 
@@ -66,13 +70,15 @@ begin
         elsif rising_edge(clk) then
             if count = 0 then
                 count <= period;
---                count_zero <= '1';
---                count_toggle <= not count_toggle;
+                count_zero <= '1';
+                toggle <= not toggle;
             else
                 count <= count - 1;
+                count_zero <= '0';
             end if;
         end if;
         count_out <= count;
+        toggle_output <= toggle;
     end process clk4;
     
 --    process (out_state)
@@ -180,34 +186,34 @@ begin
        
 --    end process assign_output;
     
---    set_PWM: process(BTNC)
---        begin
---            if (rising_edge(clk1000hz) and BTNC = '1') then
---                if SW_State = '0' then
---                    period <= SW;
---                elsif SW_State = '1' then
---                    duty <= "00000000" & SW(7 downto 0);
---                end if;
---            end if;
---        end process set_PWM;
+    set_PWM: process(BTNC)
+        begin
+            if (rising_edge(clk1000hz) and BTNC = '1') then
+                if SW_State = '0' then
+                    period <= SW;
+                elsif SW_State = '1' then
+                    duty <= "00000000" & SW(7 downto 0);
+                end if;
+            end if;
+        end process set_PWM;
     
---    state: process(BTNU)
---        begin
---            if (rising_edge(clk1000hz) and BTNU = '1') then
---                SW_State <= not SW_State;
---            end if;
---        end process state;
+    state: process(BTNU)
+        begin
+            if (rising_edge(clk1000hz) and BTNU = '1') then
+                SW_State <= not SW_State;
+            end if;
+        end process state;
         
---    show_PWM: process(SW_State, BTNC)
---        begin
---            if (rising_edge(clk1000hz)) then
---                if SW_State = '0' then
---                    LED <= period;
---                elsif SW_State = '1' then
---                    LED <= duty;
---                end if;
---            end if;
---        end process show_PWM;
+    show_PWM: process(SW_State, BTNC)
+        begin
+            if (rising_edge(clk1000hz)) then
+                if SW_State = '0' then
+                    LED <= period;
+                elsif SW_State = '1' then
+                    LED <= duty;
+                end if;
+            end if;
+        end process show_PWM;
         
         
     pwm_out: process (count)
@@ -220,12 +226,7 @@ begin
         output <= pwm;
     end process pwm_out;
     
---    toggle_out: process (count)
---    begin
---        if count = 0 then
---            toggle <= not toggle;
---        end if;
---    end process toggle_out;
+
     
 --    high_out: process (count)
 --    begin

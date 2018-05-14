@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Mon May 14 20:35:58 2018
+| Date         : Mon May 14 22:59:08 2018
 | Host         : ESL06 running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_pwm_drc_routed.rpt -pb main_pwm_drc_routed.pb
 | Design       : main_pwm
@@ -23,7 +23,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 25
+             Violations found: 26
 
 2. REPORT DETAILS
 -----------------
@@ -153,6 +153,11 @@ Related violations: <none>
 DPOP-2#2 Warning
 MREG Output pipelining  
 DSP Counter16_PWM/multOp__0 multiplier stage Counter16_PWM/multOp__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net PWM_FSM/LED17_R_0 is a gated clock net sourced by a combinational pin PWM_FSM/output_tmp_reg_i_2/O, cell PWM_FSM/output_tmp_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLIO-7#1 Warning
