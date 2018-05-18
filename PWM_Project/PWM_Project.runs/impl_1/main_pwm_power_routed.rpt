@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Mon May 14 22:59:10 2018
-| Host             : ESL06 running 64-bit major release  (build 9200)
+| Date             : Wed May 16 14:43:05 2018
+| Host             : ELECTRO-16 running 64-bit major release  (build 9200)
 | Command          : report_power -file main_pwm_power_routed.rpt -pb main_pwm_power_summary_routed.pb -rpx main_pwm_power_routed.rpx
 | Design           : main_pwm
 | Device           : xc7a100tcsg324-3
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 0.158 |
-| Dynamic (W)              | 0.053 |
+| Dynamic (W)              | 0.054 |
 | Device Static (W)        | 0.104 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.3  |
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      452 |       --- |             --- |
-|   LUT as Logic |     0.001 |      142 |     63400 |            0.22 |
-|   Register     |    <0.001 |      211 |    126800 |            0.17 |
+| Slice Logic    |     0.001 |      453 |       --- |             --- |
+|   LUT as Logic |     0.001 |      143 |     63400 |            0.23 |
+|   Register     |    <0.001 |      212 |    126800 |            0.17 |
 |   CARRY4       |    <0.001 |       22 |     15850 |            0.14 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       24 |       --- |             --- |
-| Signals        |     0.002 |      377 |       --- |             --- |
+| Signals        |     0.002 |      379 |       --- |             --- |
 | DSPs           |     0.002 |        2 |       240 |            0.83 |
-| I/O            |     0.046 |       59 |       210 |           28.10 |
+| I/O            |     0.047 |       60 |       210 |           28.57 |
 | Static Power   |     0.104 |          |           |                 |
 | Total          |     0.158 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
@@ -139,7 +139,7 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| main_pwm        |     0.053 |
+| main_pwm        |     0.054 |
 |   Binary_2_BCD  |    <0.001 |
 |   CLK_FSM       |    <0.001 |
 |   Clock1000Hz   |    <0.001 |

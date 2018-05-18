@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Andy Everitt
 -- 
 -- Create Date: 18.04.2018 14:44:31
 -- Design Name: 
@@ -33,159 +33,51 @@ use IEEE.STD_LOGIC_unsigned.ALL;
 --use UNISIM.VComponents.all;
 
 entity PWM_generator is
-    Generic (N : integer := 16);
+    Generic (N : integer := 16); -- number of bits used for the binary down counter.
     Port ( RESET : in STD_LOGIC;
-           clk, clk1000hz : in STD_LOGIC;
+           clk, clk1000hz : in STD_LOGIC; -- "clk" is used for the counter and can be changed by the user, clk1000hz is to syncronise processes.
            BTNU, BTNC : in STD_LOGIC; -- Buttons
-           SW : in STD_LOGIC_VECTOR (15 downto 0);
-           LED : out STD_LOGIC_VECTOR (15 downto 0);
---           period : STD_LOGIC_VECTOR (N-1 downto 0);
---           duty : STD_LOGIC_VECTOR (N-1 downto 0);
-           count_zero : out STD_LOGIC;
-           count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
-           output : out STD_LOGIC;
-           toggle_output : out STD_LOGIC
+           SW : in STD_LOGIC_VECTOR (15 downto 0); -- Switches
+           LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs
+           LED16_R, LED16_G, LED16_B, LED17_R, LED17_G, LED17_B : out STD_LOGIC; -- RGB LEDs
+           count_zero : out STD_LOGIC; -- pulses HIGH when counter = 0
+           count_out : out STD_LOGIC_VECTOR (N-1 downto 0); -- current counter value output
+           output : out STD_LOGIC; -- PWM output
+           toggle_output : out STD_LOGIC -- Toggle output
            );
 end PWM_generator;
 
 architecture Behavioral of PWM_generator is
 
-signal count : STD_LOGIC_VECTOR (N-1 downto 0);
-signal output_tmp : STD_LOGIC;
-signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009";
+signal count : STD_LOGIC_VECTOR (N-1 downto 0); -- current counter value
+signal period : STD_LOGIC_VECTOR (N-1 downto 0) := X"0009"; -- current counter period
 signal duty : STD_LOGIC_VECTOR (N-1 downto 0) := X"004D"; -- 4D is roughly 30% duty cycle. X"00FF" = 100%, X"0000" = 0%
-signal SW_State : STD_LOGIC;
---signal count_zero : STD_LOGIC;
-signal pwm : STD_LOGIC;
-signal toggle : STD_LOGIC;
---signal high : STD_LOGIC;
---signal low : STD_LOGIC;
+signal SW_State : STD_LOGIC; -- Used to program either period or duty using SW inputs
+signal pwm : STD_LOGIC; -- PWM signal
+signal toggle : STD_LOGIC; -- toggle signal
 
 begin
 
+    -- N bit continuous down counter that outputs the current count value, count_zero, and toggle_output. 
     clk4: process (clk, RESET)
     begin
         if RESET = '1' then
-            count <= (others => '0');
+            count <= (others => '0'); -- sets the count value to 0 when RESET is HIGH
         elsif rising_edge(clk) then
             if count = 0 then
-                count <= period;
-                count_zero <= '1';
-                toggle <= not toggle;
+                count <= period; -- restarts counter after reaching 0
+                count_zero <= '1'; -- HIGH only while count = 0
+                toggle <= not toggle; -- T flip flop to output toggle waveform
             else
-                count <= count - 1;
+                count <= count - 1; -- decremment counter
                 count_zero <= '0';
             end if;
         end if;
-        count_out <= count;
+        count_out <= count; -- assign signals to outputs
         toggle_output <= toggle;
     end process clk4;
     
---    process (out_state)
---    begin
---        if rising_edge(clk) then
---            if (out_state = "10" or out_state = "11") then
---                count_zero <= '0';
---            end if;
---        end if;
---    end process;
-    
---    assign_output: process (count)
---    begin
- 
--- This code works to assert output (LED17_R & JA(2)) high permenantly after counter reaches zero
-
---        if out_state = "10" then
---            if count = X"0000" then
---                output <= '1';
---            end if;
---        end if;
---        output <= output_tmp;
-
-
--- This code does not work
--- PWM output is ok
--- Toggle output does random assignments
--- Assert High only asserts high when count = 0 else asserts low?
-
---        case out_state is
---            when "00" => 
---                LED16_R <= '1';
---                if ("11111111" * count) < (period * duty(7 downto 0)) then
---                    output <= '1';
---                else
---                    output <= '0';
---                end if;
---            when "01" =>
---                LED16_G <= '1'; 
---                if count_toggle = '1' then
---                    output_tmp <= not output_tmp;
---                    output <= output_tmp;
---                end if;
---            when "10" =>
---                LED16_B <= '1';
---                output <= '0';
---                if count_zero = '1' then
---                    output <= '1';
---                end if;
---            when "11" =>
---                output <= '1';
---                if count_zero = '1' then
---                    output <= '0';
---                end if;
---        end case;
-
-
---        case out_state is
---            when "00" => 
---                LED16_R <= '1';
---                output <= pwm;
---            when "01" =>
---                LED16_G <= '1';
---                output <= toggle;
---            when "10" =>
---                output <= high;
---            when "11" =>
---                output <= low;
---            when others =>
---                output <= '1';
---        end case;
-
-
--- This code does not work
--- PWM output is ok
--- Toggle output does random assignments
--- Assert High only asserts high when count = 0 else asserts low?
-
---        if out_state = "00" then
---            LED16_R <= '1';
---            if ("11111111" * count) < (period * duty(7 downto 0)) then
---                output <= '1';
---            else
---                output <= '0';
---            end if;
---        end if;
---        if out_state = "01" then
---            LED16_G <= '1'; 
---            if count = X"0000" then
---                output_tmp <= not output_tmp;
---                output <= output_tmp;
---            end if;
---        end if;
---        if out_state = "10" then
---            LED16_B <= '1';
---            if count = X"0000" then
---                output <= '1';
---            end if;
---        end if;
---        if out_state = "11" then
---            if count = X"0000" then
---                output <= '0';
---            end if;
---        end if;
-       
---    end process assign_output;
-    
+    -- Sets the period and duty signals for the counter when BTNC is HIGH.
     set_PWM: process(BTNC)
         begin
             if (rising_edge(clk1000hz) and BTNC = '1') then
@@ -197,6 +89,7 @@ begin
             end if;
         end process set_PWM;
     
+    -- Changes SW_State when BTNU goes HIGH.
     state: process(BTNU)
         begin
             if (rising_edge(clk1000hz) and BTNU = '1') then
@@ -204,18 +97,23 @@ begin
             end if;
         end process state;
         
+    -- Shows the currently loaded period or duty on the LEDs above the switches.
+    -- LED17_B is on when showing duty, and off when showing period.
     show_PWM: process(SW_State, BTNC)
         begin
             if (rising_edge(clk1000hz)) then
                 if SW_State = '0' then
                     LED <= period;
+                    LED17_B <= '0';
                 elsif SW_State = '1' then
                     LED <= duty;
+                    LED17_B <= '1';
                 end if;
             end if;
         end process show_PWM;
         
-        
+    -- Calculate when PWM output should be HIGH based on current count value, period and duty cycle (as a percentage).
+    -- Duty cycle is from 0-255, where 51 would be 100*51/255 % = 20%.
     pwm_out: process (count)
     begin
         if ("11111111" * count) < (period * duty(7 downto 0)) then
@@ -225,21 +123,5 @@ begin
         end if;
         output <= pwm;
     end process pwm_out;
-    
-
-    
---    high_out: process (count)
---    begin
---        if count = 0 then
---            high <= '1';
---        end if;
---    end process high_out;
-    
---    low_out: process (count)
---    begin
---        if count = 0 then
---            low <= '0';
---        end if;
---    end process low_out;
 
 end Behavioral;
