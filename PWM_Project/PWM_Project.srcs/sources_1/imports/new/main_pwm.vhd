@@ -38,7 +38,7 @@ entity main_pwm is
        BTNL, BTNU, BTNC, BTNR, BTND : in STD_LOGIC; -- Buttons
        SW : in STD_LOGIC_VECTOR(15 downto 0) := X"8000"; -- Switches
        LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs above switches
-       LED16_R, LED16_G, LED16_B, LED17_R, LED17_G, LED17_B : out STD_LOGIC; -- RGB LEDs
+       LED16_R, LED16_G, LED16_B, LED17_R, LED17_B : out STD_LOGIC; -- RGB LEDs
        JA : out STD_LOGIC_VECTOR (2 downto 1); -- Pmod output
        CA : out STD_LOGIC;
        CB : out STD_LOGIC;
@@ -86,7 +86,7 @@ architecture struct of main_pwm is
             BTNU, BTNC : in STD_LOGIC; -- Buttons
             SW : in STD_LOGIC_VECTOR (15 downto 0);
             LED : out STD_LOGIC_VECTOR (15 downto 0);
-            LED16_R, LED16_G, LED16_B, LED17_R, LED17_G, LED17_B : out STD_LOGIC; -- RGB LEDs
+            LED17_B : out STD_LOGIC; -- RGB LEDs
             count_zero : out STD_LOGIC;
             count_out : out STD_LOGIC_VECTOR (N-1 downto 0);
             output : out STD_LOGIC;

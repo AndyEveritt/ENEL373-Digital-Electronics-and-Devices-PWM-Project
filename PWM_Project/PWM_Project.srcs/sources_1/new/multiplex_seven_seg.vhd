@@ -39,14 +39,6 @@ entity multiplex_seven_seg is
 end multiplex_seven_seg;
 
 architecture Behavioral of multiplex_seven_seg is
-
-    component clock_divider
-        generic (OUTPUT_FREQUENCY : INTEGER := 1);
-        port (
-            in_clock, enable : in STD_LOGIC;
-            out_clock : out STD_LOGIC
-            );
-    end component;
     
     signal counter: STD_LOGIC_VECTOR(2 downto 0) := (others => '0');
     signal r_anodes: STD_LOGIC_VECTOR(7 downto 0);

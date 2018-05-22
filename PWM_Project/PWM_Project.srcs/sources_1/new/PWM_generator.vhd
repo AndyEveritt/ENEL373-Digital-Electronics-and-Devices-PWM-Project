@@ -39,7 +39,7 @@ entity PWM_generator is
            BTNU, BTNC : in STD_LOGIC; -- Buttons
            SW : in STD_LOGIC_VECTOR (15 downto 0); -- Switches
            LED : out STD_LOGIC_VECTOR (15 downto 0); -- LEDs
-           LED16_R, LED16_G, LED16_B, LED17_R, LED17_G, LED17_B : out STD_LOGIC; -- RGB LEDs
+           LED17_B : out STD_LOGIC; -- RGB LEDs
            count_zero : out STD_LOGIC; -- pulses HIGH when counter = 0
            count_out : out STD_LOGIC_VECTOR (N-1 downto 0); -- current counter value output
            output : out STD_LOGIC; -- PWM output

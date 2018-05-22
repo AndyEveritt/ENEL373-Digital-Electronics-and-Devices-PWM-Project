@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Wed May 16 14:41:51 2018
-| Host         : ELECTRO-16 running 64-bit major release  (build 9200)
+| Date         : Tue May 22 21:27:03 2018
+| Host         : Andys-Laptop running 64-bit major release  (build 9200)
 | Command      : report_utilization -file main_pwm_utilization_synth.rpt -pb main_pwm_utilization_synth.pb
 | Design       : main_pwm
 | Device       : 7a100tcsg324-3
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   61 |     0 |       210 | 29.05 |
+| Bonded IOB                  |   60 |     0 |       210 | 28.57 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         6 |  0.00 |
@@ -160,7 +160,6 @@ Table of Contents
 | LUT1     |    3 |                 LUT |
 | DSP48E1  |    2 |    Block Arithmetic |
 | BUFG     |    2 |               Clock |
-| OBUFT    |    1 |                  IO |
 | LDCE     |    1 |        Flop & Latch |
 +----------+------+---------------------+
 
