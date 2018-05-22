@@ -1,0 +1,67 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue May 22 21:28:43 2018
+| Host         : Andys-Laptop running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_pwm_control_sets_placed.rpt
+| Design       : main_pwm
+| Device       : xc7a100t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    14 |
+| Unused register locations in slices containing registers |    52 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              39 |           18 |
+| No           | No                    | Yes                    |              18 |            5 |
+| No           | Yes                   | No                     |              70 |           21 |
+| Yes          | No                    | No                     |              24 |           15 |
+| Yes          | No                    | Yes                    |              61 |           14 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------------+---------------------------------------+-------------------------------+------------------+----------------+
+|     Clock Signal     |             Enable Signal             |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
++----------------------+---------------------------------------+-------------------------------+------------------+----------------+
+|  PWM_FSM/LED17_R_0   |                                       |                               |                1 |              1 |
+|  CLK                 |                                       |                               |                1 |              2 |
+| ~CLK1000HZ_BUFG      |                                       | RESET                         |                1 |              2 |
+|  CLK100MHZ_IBUF_BUFG |                                       |                               |                6 |              7 |
+|  CLK1000HZ_BUFG      | Counter16_PWM/duty0                   |                               |                5 |              8 |
+|  CLK1000HZ_BUFG      |                                       | RESET                         |                5 |              9 |
+|  CLK                 |                                       | RESET                         |                4 |             16 |
+|  CLK1000HZ_BUFG      | Counter16_PWM/period[15]_i_1_n_0      |                               |               10 |             16 |
+|  CLK100MHZ_IBUF_BUFG |                                       | Clock1000Hz/count[16]_i_1_n_0 |                4 |             17 |
+| ~CLK1000HZ_BUFG      | Binary_2_BCD/bcds_out_reg[19]_i_1_n_0 | RESET                         |                6 |             20 |
+|  CLK100MHZ_IBUF_BUFG |                                       | Clock100Hz/count[19]_i_1_n_0  |                6 |             20 |
+|  CLK100MHZ_IBUF_BUFG |                                       | Clock5Hz/count[24]_i_1_n_0    |                6 |             24 |
+|  CLK1000HZ_BUFG      |                                       |                               |               10 |             29 |
+| ~CLK1000HZ_BUFG      | Binary_2_BCD/bcds[19]_i_1_n_0         | RESET                         |                8 |             41 |
++----------------------+---------------------------------------+-------------------------------+------------------+----------------+
+
+
