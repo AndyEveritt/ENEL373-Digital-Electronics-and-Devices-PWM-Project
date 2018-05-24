@@ -242,7 +242,7 @@ begin
             LED16_G <= '1';
             LED17_R <= toggle_out;
             JA(2) <= toggle_out;
-        when "11" =>
+        when others => --"11"
             LED16_R <= '1';
             LED16_G <= '1';
             LED16_B <= '1';
@@ -256,7 +256,6 @@ begin
                 LED17_R <= '0';
                 JA(2) <= '0';
             end if;
-        when others =>
             
     end case;
 end process;
@@ -272,8 +271,9 @@ begin
                 CLK <= CLK100HZ;
             when "10" =>
                 CLK <= CLK1000HZ;
-            when "11" =>
+            when others => --"11"
                 CLK <= CLK100MHZ;
+            
         end case;
         JA(1) <= CLK;
     end if;

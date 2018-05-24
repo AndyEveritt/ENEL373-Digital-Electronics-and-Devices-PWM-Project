@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue May 22 21:26:01 2018">
+<application name="pa" timeStamp="Wed May 23 11:46:25 2018">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="da79b019412b4f72836c53ba398438ac" type="ProjectID"/>
-<property name="ProjectIteration" value="195" type="ProjectIteration"/>
+<property name="ProjectIteration" value="197" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,7 +17,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="13" type="JavaHandler"/>
+<property name="AddSources" value="14" type="JavaHandler"/>
 <property name="AutoConnectTarget" value="18" type="JavaHandler"/>
 <property name="CloseProject" value="1" type="JavaHandler"/>
 <property name="EditDelete" value="2" type="JavaHandler"/>
@@ -28,23 +28,23 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="FlipToViewTaskRTLAnalysis" value="50" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="110" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="109" type="JavaHandler"/>
-<property name="OpenProject" value="20" type="JavaHandler"/>
+<property name="OpenProject" value="22" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="8" type="JavaHandler"/>
 <property name="ProgramDevice" value="74" type="JavaHandler"/>
-<property name="ProjectSettingsCmdHandler" value="7" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="8" type="JavaHandler"/>
 <property name="RefreshDevice" value="1" type="JavaHandler"/>
-<property name="RunBitgen" value="132" type="JavaHandler"/>
+<property name="RunBitgen" value="134" type="JavaHandler"/>
 <property name="RunImplementation" value="63" type="JavaHandler"/>
 <property name="RunSchematic" value="11" type="JavaHandler"/>
 <property name="RunSynthesis" value="78" type="JavaHandler"/>
-<property name="SaveFileProxyHandler" value="25" type="JavaHandler"/>
-<property name="SetSourceEnabled" value="22" type="JavaHandler"/>
-<property name="SetTopNode" value="6" type="JavaHandler"/>
-<property name="ShowView" value="67" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="28" type="JavaHandler"/>
+<property name="SetSourceEnabled" value="23" type="JavaHandler"/>
+<property name="SetTopNode" value="7" type="JavaHandler"/>
+<property name="ShowView" value="68" type="JavaHandler"/>
 <property name="SimulationBreak" value="2" type="JavaHandler"/>
-<property name="SimulationClose" value="9" type="JavaHandler"/>
+<property name="SimulationClose" value="11" type="JavaHandler"/>
 <property name="SimulationRelaunch" value="88" type="JavaHandler"/>
-<property name="SimulationRun" value="33" type="JavaHandler"/>
+<property name="SimulationRun" value="50" type="JavaHandler"/>
 <property name="SimulationRunAll" value="8" type="JavaHandler"/>
 <property name="SimulationRunForTime" value="120" type="JavaHandler"/>
 <property name="SimulationStep" value="55" type="JavaHandler"/>
@@ -61,6 +61,48 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformSaveConfiguration" value="1" type="JavaHandler"/>
 <property name="ZoomIn" value="2" type="JavaHandler"/>
 <property name="ZoomOut" value="2" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="FSM_TB.vhd, 109, 432" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 124, 201" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 124, 201, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 158, 504" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 185, 479" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 190, 485" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 197, 535" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 200, 193" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 236, 188" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 430, 248" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 435, 304" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 55, 418" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 87, 470" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 95, 501" value="1" type="GuiResourceData"/>
+<property name="FSM_TB.vhd, 95, 501, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="3" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_OPEN_PROJECT, Open Project..." value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="6" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SRC_DISABLE, Disable File" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints], 14" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Disabled Sources], 22" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, FSM_TB - Behavioral (FSM_TB.vhd" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, PWM_generator_tb - Behavioral (PWM_generator_tb.vhd" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="6" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sim_1, [HDL 9-806] Syntax error near Finite_State_Machine. [D:/Uni/ENEL373/Labs/lab_a02_group_18/PWM_Project/PWM_Project.srcs/sim_1/new/FSM_TB.vhd:45]. ], 6, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, State[1:0] ; U ; Array, 2, State[1:0], 0, true" value="2" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
+<property name="RDIResource.MessageWithOptionDialog_DONT_SHOW_THIS_DIALOG_AGAIN, Don't show this dialog again, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.ProgressDialog_BACKGROUND, Background" value="1" type="GuiResourceData"/>
+<property name="RDIResource.ProgressDialog_CANCEL, Cancel" value="2" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 10, 12" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 3" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, State[1:0]], 2" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="3" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="1" type="TclMode"/>
 </item>
 </section>
 </application>

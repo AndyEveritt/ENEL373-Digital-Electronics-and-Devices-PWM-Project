@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Finite_State_Machine is
-    Port ( CLK, RESET : in std_logic;
+    Port ( CLK : in std_logic;
            But : in std_logic;
            State : out std_logic_vector(1 downto 0)
            );
@@ -72,9 +72,10 @@ begin
                 State <= "11";
                 next_state <= s3;
             
-            when s3 =>
+            when others => --s3
                 State <= "00";
                 next_state <= s0;
+               
         end case;
     end if;
 end process;
